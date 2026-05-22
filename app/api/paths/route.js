@@ -2,9 +2,14 @@ import { NextResponse } from 'next/server';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
 // GET — fetch all saved paths for logged-in user
 export async function GET() {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = createRouteHandlerClient({ cookies }, { supabaseUrl, supabaseKey });
   const { data: { session } } = await supabase.auth.getSession();
 
   if (!session) {
@@ -23,7 +28,7 @@ export async function GET() {
 
 // POST — save a new path
 export async function POST(request) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = createRouteHandlerClient({ cookies }, { supabaseUrl, supabaseKey });
   const { data: { session } } = await supabase.auth.getSession();
 
   if (!session) {
@@ -69,7 +74,7 @@ export async function POST(request) {
 
 // DELETE — remove a saved path
 export async function DELETE(request) {
-  const supabase = createRouteHandlerClient({ cookies });
+  const supabase = createRouteHandlerClient({ cookies }, { supabaseUrl, supabaseKey });
   const { data: { session } } = await supabase.auth.getSession();
 
   if (!session) {

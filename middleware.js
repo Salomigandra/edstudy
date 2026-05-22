@@ -1,12 +1,20 @@
 import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
 // Routes that require login
 const PROTECTED = ['/saved'];
 
 export async function middleware(req) {
   const res = NextResponse.next();
-  const supabase = createMiddlewareClient({ req, res });
+  const supabase = createMiddlewareClient(
+    { req, res },
+    { supabaseUrl, supabaseKey }
+  );
 
   // Refresh session if expired — important for SSR pages
   const { data: { session } } = await supabase.auth.getSession();
