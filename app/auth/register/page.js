@@ -11,7 +11,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const supabase = createBrowserClient();
+  // createBrowserClient() called inside handlers to avoid SSR issues
 
   // Load reCAPTCHA v3 script
   useEffect(() => {
@@ -70,6 +70,7 @@ export default function RegisterPage() {
       }
 
       // Sign up with Supabase
+      const supabase = createBrowserClient();
       const { error: signUpError } = await supabase.auth.signUp({
         email: form.email,
         password: form.password,

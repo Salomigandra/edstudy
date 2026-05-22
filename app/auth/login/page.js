@@ -14,7 +14,7 @@ function LoginForm() {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [resetSent, setResetSent] = useState(false);
-  const supabase = createBrowserClient();
+  // createBrowserClient() is called inside handlers (not at render time) to avoid SSR issues
 
   useEffect(() => {
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
@@ -60,6 +60,7 @@ function LoginForm() {
         }
       }
 
+      const supabase = createBrowserClient();
       const { error: signInError } = await supabase.auth.signInWithPassword({
         email: form.email,
         password: form.password,
@@ -86,6 +87,7 @@ function LoginForm() {
       return;
     }
     setLoading(true);
+    const supabase = createBrowserClient();
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(form.email, {
       redirectTo: `${window.location.origin}/auth/callback?next=/auth/reset-password`,
     });

@@ -75,10 +75,15 @@ function SpecItem({ spec, accent }) {
 
 function SaveButton({ course, streamKey, streamName }) {
   const [status, setStatus] = useState('idle'); // idle | saving | saved | error | login
-  const supabase = createBrowserClient();
   const router = useRouter();
 
   const handleSave = useCallback(async () => {
+    const supabase = createBrowserClient();
+    if (!supabase) {
+      // Env vars not set — redirect to login which will show the issue
+      router.push('/auth/login?next=/saved');
+      return;
+    }
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) {
       setStatus('login');
@@ -108,7 +113,7 @@ function SaveButton({ course, streamKey, streamName }) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 2000);
     }
-  }, [course, streamKey, streamName, supabase, router]);
+  }, [course, streamKey, streamName, router]);
 
   const labels = { idle: '🔖 Save this path', saving: 'Saving…', saved: '✓ Saved to your list', error: 'Try again', login: 'Login to save →' };
   const styles = { idle: 'bg-slate-800 text-white', saving: 'bg-slate-400 text-white', saved: 'bg-emerald-600 text-white', error: 'bg-red-500 text-white', login: 'bg-indigo-600 text-white' };

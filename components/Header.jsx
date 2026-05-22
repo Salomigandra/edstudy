@@ -5,19 +5,22 @@ import { createBrowserClient } from '@/lib/supabase';
 
 export default function Header({ backHref, title = 'India Education Pathways', subtitle }) {
   const [user, setUser] = useState(null);
-  const supabase = createBrowserClient();
 
   useEffect(() => {
+    const supabase = createBrowserClient();
+    if (!supabase) return; // env vars not set yet — skip silently
+
     supabase.auth.getUser().then(({ data }) => setUser(data?.user || null));
+
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user || null);
     });
     return () => listener?.subscription?.unsubscribe();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    const supabase = createBrowserClient();
+    if (supabase) await supabase.auth.signOut();
     setUser(null);
     window.location.href = '/';
   };
