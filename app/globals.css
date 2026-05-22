@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 2px; }
+
+/* Hide scrollbar but keep scroll (horizontal chip rows) */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Smooth accordion */
+.accordion-body {
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+/* Hide reCAPTCHA badge (terms shown in register form footer) */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
+/* Accessible focus rings */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
