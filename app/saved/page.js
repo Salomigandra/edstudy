@@ -29,7 +29,7 @@ export default async function SavedPage() {
 
   return (
     <div className="max-w-lg mx-auto min-h-screen flex flex-col shadow-xl">
-      <Header title="🔖 Saved Paths" subtitle="Your shortlisted education options" />
+      <Header backHref="/" title="🔖 Saved Paths" subtitle="Your shortlisted education options" />
 
       <main className="flex-1 px-4 pt-4 pb-28 space-y-4">
         {/* User info banner */}

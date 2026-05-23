@@ -16,8 +16,11 @@ export const STREAMS = [
         dur: '4 years',
         exam: 'JEE Main / Advanced · BITSAT · MHT-CET · KCET · VITEEE',
         salary: '₹4 – 60+ LPA',
+        salaryStages: ['₹4–8 LPA', '₹10–25 LPA', '₹30–60+ LPA'],
         colleges: 'IITs · NITs · BITS Pilani · VIT · SRM · Manipal · IIIT',
         desc: 'Most sought-after engineering degree in India. IIT placements reach ₹1–2 Cr+ LPA. Covers core and emerging tech fields.',
+        fit: 'loves maths & physics, enjoys problem-solving, wants a tech or engineering career',
+        compare: ['BCA / B.Sc CS (no JEE needed)', 'B.Sc (research/science path)', 'MBBS (if PCB — medicine)'],
         specs: [
           { n: 'Computer Science / IT / AI', s: '₹6–60 LPA', careers: ['Software Engineer', 'Data Scientist', 'AI/ML Engineer', 'Full Stack Developer', 'Product Manager', 'DevOps Engineer'] },
           { n: 'Mechanical Engineering', s: '₹4–25 LPA', careers: ['Mechanical Design Engineer', 'Automotive Engineer', 'ISRO/DRDO Scientist', 'Manufacturing Manager', 'Robotics Engineer'] },
@@ -38,8 +41,11 @@ export const STREAMS = [
         dur: '5.5 years + 1yr Internship',
         exam: 'NEET-UG (mandatory for all medical colleges)',
         salary: '₹8 – 80+ LPA',
+        salaryStages: ['₹8–15 LPA', '₹18–40 LPA', '₹50–80+ LPA'],
         colleges: 'AIIMS · JIPMER · Government Medical Colleges · Private Medical Colleges',
         desc: 'Doctor of Medicine — one of India\'s most respected careers. Government MBBS is nearly free; private costs ₹50L–1Cr+.',
+        fit: 'wants to become a doctor, comfortable with a long study path, biology is the strongest subject',
+        compare: ['BDS (dentistry, same NEET)', 'B.Pharm (pharma career, shorter)', 'BPT Physiotherapy (healthcare, easier entry)', 'Allied Health Sciences'],
         specs: [
           { n: 'MBBS (General Medicine)', s: '₹10–80 LPA', careers: ['General Physician', 'Hospital Doctor', 'Govt Medical Officer', 'Clinic Owner', 'Armed Forces Medical Officer'] },
           { n: 'BDS (Dentistry)', s: '₹5–30 LPA', careers: ['Dentist', 'Orthodontist', 'Oral Surgeon', 'Own Dental Clinic', 'Defence Dental Officer'] },
@@ -55,8 +61,11 @@ export const STREAMS = [
         dur: '3 years',
         exam: 'CUET / JNU Entrance / State Entrance / Merit',
         salary: '₹3 – 25 LPA',
+        salaryStages: ['₹3–6 LPA', '₹8–18 LPA', '₹20–25 LPA'],
         colleges: 'IISc · IITs · JNU · Central Universities · Miranda House DU · Presidency',
         desc: 'Pure science degree. Strong base for research (IISER/IISc), data science, pharmacy, and UPSC. IISc B.Sc Research is world-class.',
+        fit: 'curious about pure science or research, wants to keep options open with a 3-year degree first',
+        compare: ['B.Tech (higher salary, competitive JEE entry)', 'BCA (IT-focused, no JEE)', 'MBBS (medicine track via NEET)'],
         specs: [
           { n: 'Physics / Chemistry / Maths', s: '₹4–25 LPA', careers: ['Research Scientist', 'Data Analyst', 'UPSC IFS/IAS', 'Quant Analyst', 'Science Teacher'] },
           { n: 'Biotechnology / Microbiology', s: '₹4–18 LPA', careers: ['Biotech Researcher', 'Pharma R&D', 'Food Technologist', 'Clinical Research'] },
@@ -65,6 +74,7 @@ export const STREAMS = [
           { n: 'B.Sc Agriculture / Horticulture', s: '₹3–15 LPA', careers: ['Agriculture Officer', 'Agritech Founder', 'Farm Management', 'ICAR Scientist'] },
           { n: 'Nursing (B.Sc Nursing)', s: '₹3–40 LPA', careers: ['Staff Nurse India/Abroad', 'ICU Nurse Specialist', 'Nurse Educator', 'Travel Nurse USA/UK'] },
           { n: 'Forensic Science', s: '₹3–15 LPA', careers: ['Forensic Scientist (CBI/FSL)', 'Crime Scene Investigator', 'Expert Witness', 'Forensic Toxicologist'] },
+          { n: 'Environmental Science', s: '₹3–18 LPA', careers: ['Environmental Consultant', 'GIS Analyst', 'Pollution Control Officer', 'Climate Researcher'] },
         ],
         pg: ['M.Sc (CUET PG / JAM / JEST)', '5-yr BS-MS (IISER — IISER Aptitude Test)', 'M.Tech (GATE)', 'MBA (CAT)', 'PhD + JRF (UGC-NET / CSIR-NET)'],
       },
@@ -74,12 +84,16 @@ export const STREAMS = [
         dur: '3 years',
         exam: 'CUET / IPU CET / Merit / State Entrance',
         salary: '₹3 – 25 LPA',
+        salaryStages: ['₹3–6 LPA', '₹8–18 LPA', '₹20–25 LPA'],
         colleges: 'BITS · NIT · Symbiosis · Christ · IP University · Manipal · Amity',
         desc: 'Bachelor of Computer Applications — pure IT degree. Great launchpad into software, data, and tech without needing JEE.',
+        fit: 'loves computers but doesn\'t want JEE pressure, wants to enter software or data careers',
+        compare: ['B.Tech CS (IIT/NIT — JEE needed)', 'B.Sc Data Science (analytics focus)', 'B.Com + MCA (finance + tech)'],
         specs: [
           { n: 'BCA (Computer Applications)', s: '₹3–20 LPA', careers: ['Software Developer', 'Web Developer', 'App Developer', 'Database Admin', 'IT Support Manager'] },
           { n: 'B.Sc Computer Science', s: '₹4–25 LPA', careers: ['Full Stack Developer', 'Data Analyst', 'Cloud Engineer', 'Game Developer', 'Software Architect'] },
           { n: 'B.Sc Data Science / AI', s: '₹6–35 LPA', careers: ['Data Scientist', 'ML Engineer', 'AI Researcher', 'Business Intelligence Analyst'] },
+          { n: 'B.Sc Cybersecurity', s: '₹5–25 LPA', careers: ['Security Analyst', 'Ethical Hacker', 'Network Security Engineer', 'SOC Analyst'] },
         ],
         pg: ['MCA (NIMCET → NIT MCA)', 'M.Sc CS (CUET PG)', 'MBA Tech (CAT)', 'M.Tech CS (GATE)', 'MS Abroad (GRE)'],
       },
@@ -89,12 +103,16 @@ export const STREAMS = [
         dur: '5 years',
         exam: 'JEE Paper 2 + NATA (mandatory)',
         salary: '₹4 – 40 LPA',
+        salaryStages: ['₹4–7 LPA', '₹10–22 LPA', '₹25–40 LPA'],
         colleges: 'IIT Kharagpur · SPA Delhi · CEPT Ahmedabad · NIT Trichy · Chandigarh College of Arch',
         desc: '5-year professional degree regulated by Council of Architecture (COA). Strong design + engineering blend. NATA score is mandatory.',
+        fit: 'creative AND technical, loves designing buildings and spaces, patient for a 5-year programme',
+        compare: ['Fine Arts / NID (pure design, shorter)', 'Civil Engineering B.Tech (more construction-focused)', 'Interior Design courses (3–4 yrs)'],
         specs: [
           { n: 'Urban Design / City Planning', s: '₹6–30 LPA', careers: ['Urban Planner', 'Smart City Consultant', 'RERA Architect', 'Govt Planning Officer'] },
           { n: 'Interior / Landscape Design', s: '₹5–35 LPA', careers: ['Interior Designer', 'Landscape Architect', 'Set Designer', 'Sustainable Design Consultant'] },
           { n: 'Sustainable / Green Architecture', s: '₹6–25 LPA', careers: ['Green Building Consultant', 'LEED Certified Architect', 'Environmental Designer'] },
+          { n: 'Construction Management', s: '₹5–25 LPA', careers: ['Project Manager (Infra)', 'Site Architect', 'Real Estate Developer', 'PWD/CPWD Architect'] },
         ],
         pg: ['M.Arch (SPA/CEPT/NIT)', 'M.Des (IIT/NID — CEED)', 'MBA Design Mgmt', 'Masters Abroad (USA/UK/Netherlands)'],
       },
@@ -104,14 +122,18 @@ export const STREAMS = [
         dur: '3–4 years',
         exam: 'NEET / State Allied Health CET / GPAT / Merit',
         salary: '₹3 – 40 LPA (higher abroad)',
+        salaryStages: ['₹3–5 LPA', '₹8–18 LPA', '₹20–40 LPA abroad'],
         colleges: 'CMC Vellore · AIIMS Paramedical · Manipal · Amrita · JIPMER',
         desc: 'Paramedical courses supporting healthcare delivery. Very high demand post-COVID. Strong abroad prospects for nursing and physiotherapy.',
+        fit: 'wants a healthcare career without MBBS, interested in pharmacy, therapy, nursing, or lab work',
+        compare: ['MBBS (full doctor path, NEET)', 'B.Sc Nursing (high abroad demand)', 'BPT Physiotherapy (sports/rehab)'],
         specs: [
           { n: 'B.Pharm (Pharmacy)', s: '₹3–18 LPA', careers: ['Clinical Pharmacist', 'Drug Inspector', 'Pharma R&D Scientist', 'Regulatory Affairs', 'Medical Representative'] },
           { n: 'Physiotherapy (BPT)', s: '₹3–40 LPA abroad', careers: ['Sports Physiotherapist', 'Neuro Physiotherapist', 'Hospital PT', 'Own Clinic Owner'] },
           { n: 'Medical Lab Technology (BMLT)', s: '₹3–10 LPA', careers: ['Lab Technician', 'Pathology Lab Manager', 'Blood Bank Technologist', 'Research Lab Analyst'] },
           { n: 'Radiology / Imaging (BMRIT)', s: '₹3–12 LPA', careers: ['Radiographer', 'MRI/CT Scan Technologist', 'Ultrasound Technician', 'Nuclear Medicine Technologist'] },
           { n: 'GNM / ANM Nursing', s: '₹2.5–10 LPA', careers: ['Staff Nurse', 'ANM (Village Health Worker)', 'School Health Nurse', 'Travel Nurse Abroad'] },
+          { n: 'Occupational Therapy (BOT)', s: '₹3–15 LPA', careers: ['Occupational Therapist (Hospital)', 'Paediatric OT', 'Community Rehab Specialist', 'OT Abroad (UK/Canada)'] },
         ],
         pg: ['M.Pharm (GPAT)', 'MPT / MOT (Master of Physio/OT)', 'MBA Hospital Mgmt (MHA)', 'MD Pharmacology', 'MS Abroad'],
       },
@@ -134,8 +156,11 @@ export const STREAMS = [
         dur: '3 years',
         exam: 'CUET / DU Entrance / Merit / Christ / Symbiosis SET',
         salary: '₹3 – 50+ LPA',
+        salaryStages: ['₹3–6 LPA', '₹8–20 LPA', '₹30–50+ LPA'],
         colleges: 'SRCC DU · Hindu College · LSR · Christ University · Symbiosis · St. Xavier\'s · Loyola',
         desc: 'Most popular commerce undergraduate. DU\'s SRCC B.Com(H) is India\'s top commerce college. 8 specializations to choose from.',
+        fit: 'strong in accounts and maths, planning CA or MBA Finance, wants a solid 3-year commerce foundation',
+        compare: ['BBA (management focus, less accounts)', 'CA / CMA (professional direct route)', 'Economics Hons (more quantitative)'],
         specs: [
           { n: 'Accountancy (Hons) — SRCC / Hindu / DU', s: '₹3–50 LPA', careers: ['CA (ICAI)', 'CMA', 'M.Com → Commerce Lecturer', 'MBA Finance → CFO', 'Big 4 Audit Assistant'] },
           { n: 'Finance (Hons)', s: '₹5–80 LPA', careers: ['CFA / FRM Analyst', 'Investment Banker', 'Portfolio Manager', 'Fintech Analyst', 'MBA Finance → PE/VC'] },
@@ -143,7 +168,7 @@ export const STREAMS = [
           { n: 'Financial Markets', s: '₹4–35 LPA', careers: ['NISM Certified Stockbroker', 'Equity Research Analyst', 'Fund Manager (AMC)', 'Portfolio Manager'] },
           { n: 'Computer Applications', s: '₹3–22 LPA', careers: ['SAP/ERP Consultant', 'MCA → IT Project Manager', 'Data Analyst (BFSI)', 'Fintech Product Analyst'] },
           { n: 'Taxation', s: '₹4–60 LPA', careers: ['GST Practitioner', 'CA Tax Track', 'Tax Consultant', 'IRS Officer (UPSC)', 'Transfer Pricing Specialist'] },
-          { n: 'e-Commerce', s: '₹4–25 LPA', careers: ['E-Commerce Manager (Amazon/Flipkart)', 'D2C Brand Founder', 'Category Manager', 'Digital Commerce Head'] },
+          { n: 'e-Commerce / Digital Business', s: '₹4–25 LPA', careers: ['E-Commerce Manager (Amazon/Flipkart)', 'D2C Brand Founder', 'Category Manager', 'Digital Commerce Head'] },
           { n: 'Cost & Management Accounting', s: '₹3–40 LPA', careers: ['CMA (ICAI/CIMA)', 'Cost Accountant', 'Plant Finance Manager', 'CIMA UK → MNC CFO'] },
         ],
         pg: ['M.Com (CUET PG)', 'MBA (CAT/GMAT)', 'CA/CMA/CS (ICAI/ICMAI/ICSI)', 'CFA (USA) / FRM (GARP)', 'MS Finance Abroad'],
@@ -154,8 +179,11 @@ export const STREAMS = [
         dur: '3 years',
         exam: 'IPU CET · NMIMS NPAT · DU JAT · Symbiosis SET · Christ Entrance',
         salary: '₹3 – 50+ LPA',
+        salaryStages: ['₹3–6 LPA', '₹8–25 LPA', '₹30–50+ LPA'],
         colleges: 'Christ · Symbiosis · NMIMS · IP University · DU Shaheed Sukhdev · FLAME · Manipal',
-        desc: 'Management degree with the widest range of specializations. Gateway to MBA and direct corporate roles.',
+        desc: 'Management degree with the widest range of specializations. Gateway to MBA and direct corporate roles in all sectors.',
+        fit: 'interested in business and management, planning an MBA, or wants to start a business someday',
+        compare: ['B.Com (accounting/finance focus)', 'Economics Hons (policy/finance path)', 'CA (direct professional route)'],
         specs: [
           { n: 'Finance', s: '₹5–80 LPA', careers: ['MBA Finance → Investment Banker', 'CFA/FRM Analyst', 'Banking (IBPS/SBI)', 'Equity Research', 'Treasury Analyst'] },
           { n: 'Marketing', s: '₹4–50 LPA', careers: ['MBA Marketing (IIM/MICA) → Brand Manager', 'FMCG Marketing Executive', 'Digital Marketing Manager', 'Advertising Account Lead'] },
@@ -175,11 +203,14 @@ export const STREAMS = [
       {
         name: 'CA / CMA / CS',
         icon: '📋',
-        dur: '3–5 years',
+        dur: '3–5 years (self-paced)',
         exam: 'ICAI / ICMAI / ICSI Foundation → Intermediate → Final',
         salary: '₹8 – 1Cr+ LPA',
-        colleges: 'ICAI (self-study + articleship) · ICMAI · ICSI',
+        salaryStages: ['₹8–15 LPA', '₹20–40 LPA', '₹60–1Cr+ LPA'],
+        colleges: 'ICAI (self-study + articleship) · ICMAI · ICSI — no college needed',
         desc: 'Professional qualifications regulated by statutory bodies. CA is among the world\'s toughest exams. All three open very high-paying career paths.',
+        fit: 'loves numbers and finance, very disciplined and self-motivated, wants a top professional qualification',
+        compare: ['MBA Finance IIM (needs graduation first)', 'CFA/FRM (investment/risk focus)', 'B.Com + M.Com (academic route)'],
         specs: [
           { n: 'CA — Chartered Accountant (ICAI)', s: '₹8–1Cr+ LPA', careers: ['CFO / Finance Director', 'Big 4 Audit/Tax/Advisory Partner', 'Statutory Auditor', 'Tax Consultant', 'Investment Banker'] },
           { n: 'CMA — Cost & Management Accountant', s: '₹6–40 LPA', careers: ['Cost Accountant', 'Management Accountant', 'Financial Controller', 'PSU Finance Officer', 'Internal Auditor'] },
@@ -194,11 +225,15 @@ export const STREAMS = [
         dur: '3 years',
         exam: 'CUET / DU / JNU / Presidency Entrance',
         salary: '₹5 – 60 LPA',
+        salaryStages: ['₹5–8 LPA', '₹12–25 LPA', '₹35–60 LPA'],
         colleges: 'SRCC DU · LSR · JNU · Presidency Kolkata · Christ · St. Stephen\'s',
         desc: 'Quantitative economics is highly valued in finance, policy, and tech. SRCC and JNU Economics are among India\'s most competitive programmes.',
+        fit: 'strong in maths, interested in markets or policy, thinking of banking, finance, consulting, or research',
+        compare: ['B.Com Hons (accounting/finance balance)', 'BA Statistics (data/analytics focus)', 'BBA (management route to MBA)'],
         specs: [
           { n: 'BA/B.Sc Economics', s: '₹5–60 LPA', careers: ['Economist (RBI/NITI Aayog/World Bank)', 'Investment Analyst', 'Policy Researcher', 'MBA Finance → Consultant', 'Data Scientist (Econometrics)'] },
           { n: 'PPE (Philosophy, Politics, Economics)', s: '₹5–40 LPA', careers: ['Civil Services (IAS/IFS)', 'Policy Analyst', 'Journalist', 'Diplomat', 'Think Tank Researcher'] },
+          { n: 'Business Economics', s: '₹6–50 LPA', careers: ['Corporate Economist', 'Market Research Analyst', 'Investment Analyst', 'Management Consultant'] },
         ],
         pg: ['M.Sc Economics (JNU/DSE/ISI)', 'MBA Finance (CAT) → IIM', 'MA Development Economics (TISS)', 'MS Abroad (LSE/Oxford/Columbia)', 'PhD Economics (UGC-NET/CSIR)'],
       },
@@ -208,11 +243,15 @@ export const STREAMS = [
         dur: '5 years',
         exam: 'CLAT / AILET / LSAT India / MH CET Law',
         salary: '₹6 – 1Cr+ LPA',
+        salaryStages: ['₹6–12 LPA', '₹20–50 LPA', '₹60–1Cr+ LPA'],
         colleges: 'NLU Delhi · NLSIU Bangalore · NLU Mumbai · Symbiosis Law · Jindal Law',
-        desc: 'India\'s premier law schools (NLUs). Top NLU graduates are placed at ₹25–100 LPA in BigLaw and IBLF firms.',
+        desc: 'India\'s premier law schools (NLUs). Top NLU graduates are placed at ₹25–100 LPA in BigLaw and corporate law firms.',
+        fit: 'strong in English and argumentation, interested in corporate transactions, justice, or policy',
+        compare: ['BA LLB Arts stream (same CLAT)', 'MBA (management track)', 'Civil Services IAS/IPS (UPSC route)'],
         specs: [
           { n: 'B.Com LLB (Commerce + Law)', s: '₹8–80 LPA', careers: ['Corporate Lawyer (M&A/PE/VC)', 'Tax Counsel', 'Securities Lawyer', 'Legal Director (Startup)'] },
           { n: 'BBA LLB (Management + Law)', s: '₹8–80 LPA', careers: ['Corporate Lawyer', 'In-House Counsel (MNC)', 'Compliance Officer', 'IPR Attorney'] },
+          { n: 'BA LLB (Humanities + Law)', s: '₹6–40 LPA', careers: ['Constitutional Lawyer', 'Criminal Advocate', 'Public Prosecutor', 'Human Rights Lawyer'] },
         ],
         pg: ['LLM Corporate / Tax Law (1–2 yrs)', 'LLM Abroad (Harvard/Oxford/LSE)', 'Bar Exam (UK — BPTC · USA — Bar)', 'PhD Law (UGC-NET)'],
       },
@@ -235,8 +274,11 @@ export const STREAMS = [
         dur: '3 years',
         exam: 'CUET / DU / JNU / BHU / State Entrance',
         salary: '₹3 – 40+ LPA',
+        salaryStages: ['₹3–5 LPA', '₹8–18 LPA', '₹22–40+ LPA'],
         colleges: 'JNU · DU (Miranda/LSR/Hindu) · Presidency · BHU · Jadavpur · Hyderabad Central University',
         desc: 'Widest range of subjects. JNU is India\'s best for humanities research. DU\'s top colleges have very high cutoffs for popular subjects.',
+        fit: 'curious about society, literature, culture, or politics — plans to pursue UPSC, journalism, law, or research',
+        compare: ['Psychology BSc (more vocational, clinical path)', 'Journalism BMM (media career direct)', 'Law BA LLB (CLAT)'],
         specs: [
           { n: 'History / Political Science', s: '₹3–30 LPA', careers: ['Civil Services (IAS/IPS/IFS)', 'Journalist / Editor', 'Political Analyst', 'Academic Researcher', 'Diplomat'] },
           { n: 'Psychology', s: '₹4–25 LPA', careers: ['Clinical Psychologist (RCI)', 'HR / OB Specialist', 'School Counsellor', 'UX Researcher', 'Behavioural Analyst'] },
@@ -244,6 +286,7 @@ export const STREAMS = [
           { n: 'English Literature / Journalism', s: '₹3–25 LPA', careers: ['Journalist / Reporter', 'Content Strategist', 'Copywriter', 'Editor', 'PR Specialist'] },
           { n: 'Geography / Environment', s: '₹3–20 LPA', careers: ['GIS Analyst', 'Urban Planner', 'Environmental Consultant', 'UPSC Geography Optional'] },
           { n: 'Hindi / Sanskrit / Linguistics', s: '₹2.5–15 LPA', careers: ['Translator / Interpreter', 'Language Teacher', 'Content Writer', 'Govt Language Officer'] },
+          { n: 'Philosophy / Ethics', s: '₹3–18 LPA', careers: ['UPSC Essay/Ethics Paper', 'Academic Philosopher', 'Content Ethicist (Tech firms)', 'Policy Researcher'] },
         ],
         pg: ['MA (CUET PG / JNU Entrance)', 'MBA (CAT/XAT) — all streams welcome', 'LLB (3-yr) after graduation', 'M.Sc Psychology (Clinical — RCI)', 'MA Development Studies (TISS)'],
       },
@@ -253,13 +296,17 @@ export const STREAMS = [
         dur: '5 years',
         exam: 'CLAT / AILET / MHCET Law / LSAT India',
         salary: '₹6 – 1Cr+ LPA',
+        salaryStages: ['₹6–12 LPA', '₹20–50 LPA', '₹60–1Cr LPA'],
         colleges: 'NLSIU Bangalore · NLU Delhi · NLU Mumbai · Nalsar Hyderabad · Jindal',
         desc: '5-year integrated law. NLU graduates enter elite litigation and corporate law. One of India\'s most competitive undergraduate paths.',
+        fit: 'strong in English and argumentation, wants a legal career in courts or corporate law firms',
+        compare: ['B.Com LLB (commerce + law blend)', 'LLB 3-yr after graduation (BA first)', 'MBA (management alternative)'],
         specs: [
           { n: 'Constitutional / Administrative Law', s: '₹6–40 LPA', careers: ['High Court / Supreme Court Advocate', 'Judicial Services', 'Legal Aid Lawyer', 'Constitutional Researcher'] },
           { n: 'Corporate / Commercial Law', s: '₹10–1Cr LPA', careers: ['M&A Lawyer (AZB/Trilegal/Cyril)', 'Investment Banker (Legal)', 'BigLaw Partner', 'General Counsel (MNC)'] },
           { n: 'Criminal Law', s: '₹4–30 LPA', careers: ['Criminal Advocate', 'Public Prosecutor', 'Defence Lawyer', 'Legal Journalist'] },
           { n: 'Human Rights / International Law', s: '₹4–25 LPA', careers: ['UN Agency Officer', 'Human Rights Advocate', 'International Arbitration Lawyer', 'NGO Legal Counsel'] },
+          { n: 'IPR / Technology Law', s: '₹8–60 LPA', careers: ['Patent Attorney', 'IP Counsel (Tech firm)', 'Trademark Lawyer', 'Copyright Specialist'] },
         ],
         pg: ['LLM (1–2 yrs — NLU / Symbiosis)', 'LLM Abroad (Oxford / Harvard / LSE)', 'Bar Exams (UK / USA)', 'PhD Law (UGC-NET)'],
       },
@@ -269,15 +316,38 @@ export const STREAMS = [
         dur: '4 years',
         exam: 'UCEED / NID DAT / NIFT Entrance / CEED',
         salary: '₹4 – 50+ LPA',
+        salaryStages: ['₹4–7 LPA', '₹10–25 LPA', '₹30–50+ LPA'],
         colleges: 'NID Ahmedabad · NIFT Delhi · IIT IDC · Pearl Academy · MIT Institute of Design',
         desc: 'Creative career with strong demand — UX/UI design is booming. NID and IIT IDC are top institutions. Startups and MNCs hire heavily.',
+        fit: 'has strong visual or spatial creativity, interested in product design, fashion, UX, or animation',
+        compare: ['B.Arch (architecture + design blend)', 'B.Sc Animation (shorter, film/game)', 'Mass Communication BMM (media + storytelling)'],
         specs: [
           { n: 'Product / Industrial Design (NID/IIT)', s: '₹6–35 LPA', careers: ['Product Designer', 'UX/UI Designer', 'Industrial Designer', 'Design Director', 'Design Strategist'] },
           { n: 'Graphic / Communication Design', s: '₹4–30 LPA', careers: ['Graphic Designer', 'Brand Identity Designer', 'Motion Designer', 'Creative Director'] },
           { n: 'Fashion Design (NIFT)', s: '₹4–35 LPA', careers: ['Fashion Designer', 'Textile Designer', 'Fashion Buyer', 'Stylist', 'Own Fashion Label'] },
           { n: 'Animation / Film / Game Design', s: '₹4–25 LPA', careers: ['3D Animator', 'Game Designer', 'VFX Artist', 'Film Director (FTII)', 'Motion Graphics Artist'] },
+          { n: 'UX / Interaction Design', s: '₹6–40 LPA', careers: ['UX Designer (Tech firm)', 'Interaction Designer', 'Product Design Lead', 'Design Researcher'] },
         ],
         pg: ['M.Des (CEED → IIT/IISc)', 'NID PG (NID DAT PG)', 'NIFT PG', 'MFA Abroad (USA/UK)', 'MBA Design Management'],
+      },
+      {
+        name: 'Journalism / Mass Communication',
+        icon: '📰',
+        dur: '3 years',
+        exam: 'IIMC Entrance · ACJ · CUET / Symbiosis / Christ',
+        salary: '₹3 – 25 LPA',
+        salaryStages: ['₹3–5 LPA', '₹8–15 LPA', '₹15–25 LPA'],
+        colleges: 'IIMC Delhi · ACJ Chennai · Jamia Millia · Symbiosis · Xavier Institute (Mumbai)',
+        desc: 'Covers journalism, PR, advertising, digital media, and OTT content. IIMC is India\'s top mass communication school.',
+        fit: 'loves writing, storytelling, or media, wants to work in journalism, PR, content, or advertising',
+        compare: ['English Hons BA (more literary)', 'Film / Media Production (FTII)', 'BA Psychology + UX research'],
+        specs: [
+          { n: 'Print / TV / Digital Journalism', s: '₹3–18 LPA', careers: ['Reporter / News Anchor', 'Content Creator', 'Investigative Journalist', 'Digital Media Editor'] },
+          { n: 'Public Relations (PR)', s: '₹4–20 LPA', careers: ['PR Manager', 'Corporate Communications Head', 'Celebrity PR', 'Brand Spokesperson'] },
+          { n: 'Advertising / Brand Comm', s: '₹4–25 LPA', careers: ['Copywriter', 'Creative Director (Ad Agency)', 'Brand Strategist', 'Content Marketing Head'] },
+          { n: 'Film / Documentary Making', s: '₹5–30 LPA', careers: ['Filmmaker', 'Screenwriter', 'Documentary Director', 'OTT Content Producer'] },
+        ],
+        pg: ['MA Journalism (IIMC/ACJ)', 'MBA Marketing (MICA → Brand/Advertising)', 'MA Digital Media (Abroad)', 'FTII Advanced Diploma'],
       },
       {
         name: 'B.Ed / B.El.Ed (Teaching)',
@@ -285,8 +355,11 @@ export const STREAMS = [
         dur: '2–4 years',
         exam: 'State B.Ed CET / DU B.El.Ed Entrance / CUET',
         salary: '₹3 – 18 LPA',
+        salaryStages: ['₹3–5 LPA', '₹6–10 LPA', '₹10–18 LPA'],
         colleges: 'DU · TISS · RIE (NCERT) · Jamia Millia · State DIETs · Amity',
         desc: 'Teacher training degree. CTET/State TET required for govt school jobs. DU\'s B.El.Ed is a prestigious 4-year integrated programme.',
+        fit: 'loves teaching children, wants a stable govt teacher job, interested in education and child development',
+        compare: ['M.Ed (higher academic + principal track)', 'B.El.Ed DU (elementary specialist, 4-yr)', 'Child Psychology M.Sc (TISS)'],
         specs: [
           { n: 'B.Ed (Secondary Teacher Training)', s: '₹3–12 LPA', careers: ['Secondary / Sr Secondary Teacher', 'CTET/State TET → Govt School Teacher', 'School Coordinator', 'Vice Principal'] },
           { n: 'B.El.Ed (Elementary Education — DU)', s: '₹3–10 LPA', careers: ['Primary Teacher', 'Upper Primary Teacher', 'School Administrator', 'Education Researcher'] },
@@ -299,8 +372,11 @@ export const STREAMS = [
         dur: '2–4 years',
         exam: 'RCI Recognized Institutes / Merit / State CET',
         salary: '₹2.5 – 40 LPA (₹15–40 LPA abroad)',
+        salaryStages: ['₹2.5–5 LPA', '₹7–15 LPA', '₹20–40 LPA abroad'],
         colleges: 'NIEPID Secunderabad · NIEPVD Dehradun · AYJNISHD Mumbai · AIISH Mysore · NIMH Hyderabad',
         desc: 'Regulated by Rehabilitation Council of India (RCI). High demand in schools, hospitals, NGOs, and internationally — UK SENCO, UAE, Australia, Canada.',
+        fit: 'passionate about inclusion and working with children with disabilities, patient, empathetic, service-oriented',
+        compare: ['B.Ed regular (general teaching)', 'Occupational Therapy BOT (clinical rehab)', 'Social Work MA TISS (community focus)'],
         specs: [
           { n: 'D.Ed Spl. Ed — Visual Impairment', s: '₹2.5–7 LPA', careers: ['Special Educator (VI)', 'Braille Transcriptionist', 'Orientation & Mobility Trainer', 'Resource Teacher'] },
           { n: 'D.Ed Spl. Ed — Hearing Impairment', s: '₹2.5–7 LPA', careers: ['Special Educator (HI)', 'Sign Language Interpreter (ISL)', 'Auditory Verbal Therapist', 'Resource Teacher (HI)'] },
@@ -316,10 +392,13 @@ export const STREAMS = [
         name: 'BA Music / Performing Arts',
         icon: '🎵',
         dur: '3–4 years',
-        exam: 'Audition / Merit / BHU Entrance',
+        exam: 'Audition / Merit / BHU Entrance / FTII',
         salary: '₹3 – 20 LPA',
+        salaryStages: ['₹3–5 LPA', '₹6–12 LPA', '₹12–20 LPA'],
         colleges: 'Gandharva Mahavidyalaya · BHU · Rabindra Bharati · FTII Pune · Sangeet Natak Akademi',
         desc: 'Classical music, dance, theatre, and film arts. FTII Pune is Asia\'s most prestigious film school. Niche but deeply rewarding career.',
+        fit: 'deeply committed to a creative or artistic career, has trained in classical music, dance, theatre, or film',
+        compare: ['Fine Arts / NID (visual design path)', 'Mass Communication BMM (media career)', 'Film School FTII (cinema focus)'],
         specs: [
           { n: 'BA Music (Classical / Carnatic / Hindustani)', s: '₹3–20 LPA', careers: ['Performing Artist', 'Music Teacher / Faculty', 'Playback Musician', 'YouTube Music Educator', 'AIR / Doordarshan Artist'] },
           { n: 'BA Dance / Theatre', s: '₹3–15 LPA', careers: ['Choreographer', 'Theatre Director', 'Actor', 'Dance Trainer', 'Artistic Director'] },
@@ -346,8 +425,11 @@ export const STREAMS = [
         dur: '2 years',
         exam: 'ITI Entrance / NCVT / State Admission',
         salary: '₹2 – 8 LPA (₹8–20 LPA abroad)',
+        salaryStages: ['₹2–4 LPA', '₹4–7 LPA', '₹8–20 LPA abroad'],
         colleges: 'Government ITIs across India · PSU-run ITIs (ONGC, BHEL, Railways)',
         desc: 'One of the most in-demand trades. Work in factories, construction, railways, or go abroad to Middle East / Europe.',
+        fit: 'good with hands and practical work, interested in electrical systems and wants a quick job',
+        compare: ['Polytechnic Electrical Diploma (more scope, 3 yrs)', 'Electronics ITI (related circuits trade)', 'B.Tech Electrical (degree path, Class 12)'],
         specs: [
           { n: 'Industrial Electrician', s: '₹3–10 LPA', careers: ['Factory Electrician', 'Power Plant Operator', 'Railway Electrical Staff', 'Plant Maintenance Technician'] },
           { n: 'Domestic / Commercial Electrician', s: '₹2–8 LPA', careers: ['Own Electrical Contractor', 'Housing Society Electrician', 'Commercial Building Electrician'] },
@@ -360,8 +442,11 @@ export const STREAMS = [
         dur: '1–2 years',
         exam: 'ITI Entrance / NCVT',
         salary: '₹2 – 8 LPA (₹10–25 LPA abroad)',
+        salaryStages: ['₹2–4 LPA', '₹4–8 LPA', '₹10–25 LPA abroad'],
         colleges: 'Govt ITIs · PSU-run ITIs (SAIL, BHEL, TATA)',
         desc: 'Core manufacturing trades. Very high demand in defence, railways, TATA Steel, BHEL, L&T. Abroad placements in manufacturing and shipping.',
+        fit: 'interested in manufacturing and heavy industry, good with hands, wants to work in PSU or go abroad',
+        compare: ['Polytechnic Mechanical Diploma (more scope)', 'Electrician ITI (related trade)', 'CNC/CAD operator courses'],
         specs: [
           { n: 'Fitter Trade', s: '₹2.5–10 LPA', careers: ['Machine Fitter (PSU)', 'Maintenance Technician', 'Railway Workshop Staff', 'Defence Ordnance Fitter'] },
           { n: 'Welder Trade', s: '₹2.5–12 LPA abroad', careers: ['MIG/TIG Welder', 'Pipe Welder (Oil & Gas)', 'Shipyard Welder', 'Structural Welder Abroad'] },
@@ -374,8 +459,11 @@ export const STREAMS = [
         dur: '1 year',
         exam: 'ITI Entrance / NCVT',
         salary: '₹1.5 – 6 LPA',
+        salaryStages: ['₹1.5–3 LPA', '₹3–5 LPA', '₹5–6 LPA'],
         colleges: 'Govt ITIs',
         desc: 'Computer basics, data entry, DTP, Tally, MS Office. Entry point into office work, banks, and government data entry roles.',
+        fit: 'comfortable with computers, wants a quick office job or government data entry role',
+        compare: ['BCA (full IT degree)', 'Polytechnic CS Diploma (more scope)', 'SSC CHSL exam (after 12th)'],
         specs: [
           { n: 'Computer Operator & Programming', s: '₹1.5–6 LPA', careers: ['Data Entry Operator', 'Office Assistant', 'Bank Cashier Support', 'BPO / KPO Entry Level'] },
         ],
@@ -387,8 +475,11 @@ export const STREAMS = [
         dur: '2 years',
         exam: 'ITI Entrance / NCVT',
         salary: '₹2 – 10 LPA',
+        salaryStages: ['₹2–4 LPA', '₹4–7 LPA', '₹7–10 LPA'],
         colleges: 'Govt ITIs · Automobile Company ITIs (Maruti, Hero, TATA, Ashok Leyland)',
         desc: 'Automobile and diesel engine repair. Maruti, Hero, TATA, Ashok Leyland run dedicated ITI programmes with near-guaranteed placement.',
+        fit: 'passionate about vehicles and engines, wants to work in the automobile service sector',
+        compare: ['Polytechnic Automobile Engineering (more scope)', 'B.Tech Mechanical (engineering degree, Class 12)'],
         specs: [
           { n: 'Motor Vehicle / Car Mechanic', s: '₹2.5–8 LPA', careers: ['Authorized Service Centre Technician', 'Own Auto Garage', 'Fleet Maintenance Technician'] },
           { n: 'Diesel Mechanic', s: '₹3–10 LPA', careers: ['Truck / Bus Mechanic', 'Mining Equipment Technician', 'Generator Technician', 'Agricultural Machinery Mechanic'] },
@@ -401,11 +492,15 @@ export const STREAMS = [
         dur: '1 year',
         exam: 'ITI Entrance / NCVT',
         salary: '₹2 – 7 LPA (₹15–30 LPA abroad)',
+        salaryStages: ['₹2–3 LPA', '₹4–7 LPA', '₹15–30 LPA abroad'],
         colleges: 'Govt ITIs across India',
         desc: 'Civil construction trades. Extremely high demand in Middle East, UK, Canada under skilled worker visas.',
+        fit: 'good with tools and construction work, wants to work abroad or start own contracting business',
+        compare: ['ITI Civil-related trades', 'Polytechnic Civil Diploma (more scope)', 'Construction Foreman (site experience)'],
         specs: [
           { n: 'Plumber', s: '₹2–15 LPA abroad', careers: ['Residential Plumber', 'Commercial Plumber', 'Sanitation Engineer', 'UK/Gulf Skilled Worker'] },
           { n: 'Carpenter / Furniture Maker', s: '₹2–12 LPA', careers: ['Furniture Craftsman', 'Interior Fit-Out Carpenter', 'Own Carpentry Business', 'Abroad Carpenter'] },
+          { n: 'Mason / Bricklayer', s: '₹2–10 LPA', careers: ['Construction Mason', 'Tile Setter', 'Plastering Specialist', 'Gulf Construction Worker'] },
         ],
         pg: ['Apprenticeship (L&T/Shapoorji)', 'NSDC Construction Skill Cert', 'Gulf / UK Skilled Worker Visa'],
       },
@@ -415,8 +510,11 @@ export const STREAMS = [
         dur: '2 years',
         exam: 'ITI Entrance / NCVT',
         salary: '₹2.5 – 8 LPA',
+        salaryStages: ['₹2.5–4 LPA', '₹4–6 LPA', '₹6–10 LPA'],
         colleges: 'Govt ITIs across India',
         desc: 'Electronic circuit repair, instrumentation, industrial automation basics. Gateway to electronics manufacturing jobs.',
+        fit: 'interested in circuits, electronics repair, or industrial automation',
+        compare: ['Polytechnic ECE Diploma (more scope)', 'Electrician ITI (related electrical trade)', 'B.Tech Electronics (engineering degree)'],
         specs: [
           { n: 'Electronics Mechanic', s: '₹2.5–8 LPA', careers: ['Electronics Technician', 'TV/AC Repair Technician', 'Consumer Electronics Service Engineer'] },
           { n: 'Instrument Mechanic', s: '₹3–10 LPA', careers: ['Instrumentation Technician (Refinery/Plant)', 'Process Control Technician', 'SCADA/DCS Operator'] },
@@ -441,9 +539,12 @@ export const STREAMS = [
         icon: '🏗️',
         dur: '3 years',
         exam: 'State Polytechnic CET / JEECUP / MSBTE / DET',
-        salary: '₹2.5 – 10 LPA (Junior Engineer level)',
+        salary: '₹2.5 – 10 LPA',
+        salaryStages: ['₹2.5–4 LPA', '₹4–7 LPA', '₹7–10 LPA'],
         colleges: 'Government Polytechnics · Private Polytechnics across all states',
         desc: '3-year diploma that gives Junior Engineer skills. Key advantage: Lateral Entry directly into 2nd year of B.Tech — skip 1st year.',
+        fit: 'wants engineering skills quickly, plans B.Tech lateral entry later, or wants a JE government job',
+        compare: ['B.Tech full 4-yr (Class 12 JEE)', 'ITI trades (shorter, more vocational)', 'SSC JE exam after diploma'],
         specs: [
           { n: 'Civil Engineering Diploma', s: '₹2.5–8 LPA', careers: ['Site Supervisor / Junior Engineer', 'PWD/NHAI/CPWD Sub-Engineer', 'Quantity Surveyor', 'Construction Foreman'] },
           { n: 'Mechanical Engineering Diploma', s: '₹2.5–8 LPA', careers: ['Production Supervisor', 'Maintenance Engineer', 'CAD Operator', 'ITI Instructor'] },
@@ -473,8 +574,11 @@ export const STREAMS = [
         dur: '3 years NDA + 1 yr pre-commission training',
         exam: 'UPSC NDA Exam (twice yearly) + SSB Interview',
         salary: '₹6 – 18 LPA + allowances + perks',
+        salaryStages: ['₹6–9 LPA + perks', '₹10–14 LPA + perks', '₹15–18 LPA + perks'],
         colleges: 'NDA Pune · INA Ezhimala · AFA Hyderabad · OTA Chennai',
         desc: 'After Class 12 (appearing candidates eligible). Most prestigious route to become a commissioned officer in Army, Navy, or Air Force.',
+        fit: 'physically fit and disciplined, inspired by armed forces life, willing to serve the nation with pride',
+        compare: ['CDS/AFCAT (after graduation route)', 'CAPF (paramilitary assistant commandant)', 'Merchant Navy (maritime alternative)'],
         specs: [
           { n: 'Army Wing (NDA)', s: '₹7–18 LPA + perks', careers: ['Infantry Officer', 'Armoured Corps Officer', 'Artillery Officer', 'Army Service Corps', 'EME Officer'] },
           { n: 'Naval Wing (NDA → INA)', s: '₹7–18 LPA + perks', careers: ['Naval Officer', 'Submarine Officer', 'Naval Aviator', 'Marine Commando (MARCOS)'] },
@@ -488,8 +592,11 @@ export const STREAMS = [
         dur: '1 year training after joining',
         exam: 'UPSC CDS / AFCAT / TES (B.Tech Entry) + SSB',
         salary: '₹6 – 18 LPA + allowances',
+        salaryStages: ['₹6–9 LPA + perks', '₹10–14 LPA + perks', '₹15–18 LPA + perks'],
         colleges: 'OTA Chennai · IMA Dehradun · INA Ezhimala · AFA Hyderabad',
         desc: 'After graduation. CDS covers all 3 services. TES for B.Tech holders (direct Army). AFCAT for Air Force ground duty and flying.',
+        fit: 'graduate who wants to join armed forces as an officer, disciplined, motivated, and physically fit',
+        compare: ['NDA (if still in Class 12)', 'CAPF AC (paramilitary — BSF/CRPF/CISF)', 'SSB coaching after any graduation'],
         specs: [
           { n: 'CDS — Combined Defence Services', s: '₹7–18 LPA', careers: ['Army / Navy / Air Force Officer (All branches)'] },
           { n: 'TES — Technical Entry Scheme (B.Tech)', s: '₹7–18 LPA', careers: ['Army Technical Officer (EME / Corps of Engineers / Signals)'] },
@@ -506,18 +613,69 @@ export function getStreamById(id) {
   return STREAMS.find((s) => s.id === id);
 }
 
+// Synonym map for smarter search
+export const SEARCH_SYNONYMS = {
+  doctor: ['MBBS', 'BDS', 'Nursing', 'BAMS', 'BHMS', 'medical', 'physician'],
+  computer: ['BCA', 'B.Tech', 'CSE', 'Computer Science', 'IT', 'software', 'data science'],
+  engineer: ['B.Tech', 'BE', 'Diploma', 'polytechnic', 'mechanical', 'electrical', 'civil'],
+  lawyer: ['LLB', 'law', 'CLAT', 'NLU', 'advocate', 'legal'],
+  teacher: ['B.Ed', 'TET', 'CTET', 'education', 'teaching', 'school'],
+  business: ['BBA', 'MBA', 'management', 'marketing', 'entrepreneurship'],
+  finance: ['CA', 'CMA', 'CFA', 'B.Com', 'banking', 'accountant', 'CFO'],
+  arts: ['BA', 'humanities', 'history', 'psychology', 'sociology', 'literature'],
+  design: ['Fine Arts', 'NID', 'NIFT', 'UX', 'fashion', 'architecture', 'interior'],
+  army: ['NDA', 'CDS', 'defence', 'military', 'officer', 'AFCAT'],
+  abroad: ['nursing', 'physiotherapy', 'plumber', 'welder', 'carpenter', 'MBBS'],
+  software: ['BCA', 'B.Tech CS', 'Computer Science', 'coding', 'programming'],
+  government: ['UPSC', 'IAS', 'IPS', 'SSC', 'bank PO', 'civil services', 'IBPS'],
+  iti: ['electrician', 'fitter', 'welder', 'mechanic', 'plumber', 'COPA', 'vocational'],
+  diploma: ['polytechnic', 'junior engineer', 'lateral entry', 'B.Tech lateral'],
+  media: ['journalism', 'mass communication', 'IIMC', 'content', 'PR', 'advertising'],
+  animation: ['design', 'fine arts', 'game', 'VFX', 'film', 'FTII'],
+  psychology: ['BA Psychology', 'clinical psychologist', 'counsellor', 'RCI', 'mental health'],
+  pilot: ['AFCAT', 'NDA Air Force', 'flying', 'aviation', 'DGCA'],
+  nursing: ['B.Sc Nursing', 'GNM', 'ANM', 'travel nurse', 'staff nurse'],
+  fashion: ['NIFT', 'design', 'textile', 'styling', 'garment'],
+};
+
 export function searchAll(query) {
   if (!query || query.trim().length < 2) return [];
-  const q = query.toLowerCase();
+  const q = query.toLowerCase().trim();
   const results = [];
+  const seen = new Set();
+
+  // Expand query with synonyms (one level only — no recursive expansion)
+  const expandedSet = new Set([q]);
+  for (const [key, synonyms] of Object.entries(SEARCH_SYNONYMS)) {
+    // Direct key match (e.g. query "doctor" matches key "doctor") → add all synonyms
+    if (key === q) {
+      synonyms.forEach(s => expandedSet.add(s.toLowerCase()));
+      break;
+    }
+  }
+  const expandedTerms = [...expandedSet];
+
   STREAMS.forEach((stream) => {
     stream.courses.forEach((course) => {
+      // Build haystack from core fields only (exclude pg/salary which contain "abroad" / generic terms)
       const haystack = [
-        course.name, course.desc, course.exam, course.colleges,
-        ...course.pg,
+        course.name,
+        course.desc,
+        course.exam,
+        course.fit || '',
         ...course.specs.flatMap((sp) => [sp.n, ...sp.careers]),
       ].join(' ').toLowerCase();
-      if (haystack.includes(q)) {
+
+      // Short terms (≤3 chars) must match as whole words to avoid false positives
+      const matches = expandedTerms.some(term => {
+        if (term.length <= 3) {
+          return new RegExp(`\\b${term}\\b`, 'i').test(haystack);
+        }
+        return haystack.includes(term);
+      });
+      const key = `${stream.id}-${course.name}`;
+      if (matches && !seen.has(key)) {
+        seen.add(key);
         results.push({ stream, course });
       }
     });

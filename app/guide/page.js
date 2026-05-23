@@ -10,7 +10,7 @@ export const metadata = {
 export default function GuidePage() {
   return (
     <div className="max-w-lg mx-auto min-h-screen flex flex-col shadow-xl">
-      <Header title="🧭 Confused? Start Here" subtitle="Pick interests, not course names" />
+      <Header backHref="/" title="🧭 Confused? Start Here" subtitle="Pick interests, not course names" />
       <main className="flex-1 px-4 pt-4 pb-28">
         <GuideClient />
       </main>
