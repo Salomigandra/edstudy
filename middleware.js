@@ -7,7 +7,7 @@ const supabaseKey =
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 // Routes that require login
-const PROTECTED = ['/saved'];
+const PROTECTED = ['/saved', '/profile'];
 
 export async function middleware(req) {
   const res = NextResponse.next();
@@ -37,5 +37,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/saved/:path*', '/auth/login', '/auth/register'],
+  matcher: ['/saved/:path*', '/profile/:path*', '/auth/login', '/auth/register'],
 };

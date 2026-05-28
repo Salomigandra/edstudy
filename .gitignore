@@ -55,3 +55,7 @@ pnpm-debug.log*
 
 # Mac
 .DS_Store
+
+# Local Claude context — keep on machine, not in repo
+CLAUDE.md
+.claude/
