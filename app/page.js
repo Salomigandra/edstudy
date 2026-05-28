@@ -197,6 +197,18 @@ export default async function HomePage() {
 
       </main>
 
+      {/* ── Legal footer ── */}
+      <footer className="px-4 py-4 pb-24 lg:pb-6 text-center lg:max-w-3xl lg:mx-auto lg:w-full">
+        <div className="flex items-center justify-center gap-4 flex-wrap">
+          <Link href="/legal/terms" className="text-[11px] text-slate-400 hover:text-brand-600 transition-colors">Terms</Link>
+          <span className="text-slate-300 text-[11px]">·</span>
+          <Link href="/legal/privacy" className="text-[11px] text-slate-400 hover:text-brand-600 transition-colors">Privacy</Link>
+          <span className="text-slate-300 text-[11px]">·</span>
+          <Link href="/legal/disclaimer" className="text-[11px] text-slate-400 hover:text-brand-600 transition-colors">Disclaimer</Link>
+        </div>
+        <p className="text-[10px] text-slate-300 mt-2">© 2026 EdStudy. All rights reserved.</p>
+      </footer>
+
       <BottomNav />
     </div>
   );
