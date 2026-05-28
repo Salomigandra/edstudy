@@ -1,9 +1,9 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { createBrowserClient } from '@/lib/supabase';
-import { Suspense } from 'react';
+import Logo from '@/components/Logo';
 
 function LoginForm() {
   const router = useRouter();
@@ -102,16 +102,24 @@ function LoginForm() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center px-4 py-10">
       <div className="w-full max-w-sm mx-auto">
-        <Link href="/" className="flex items-center gap-2 mb-8">
-          <span className="text-3xl">🎓</span>
-          <div>
-            <p className="font-black text-slate-800 text-sm leading-tight">India Education Pathways</p>
-            <p className="text-xs text-slate-400">Your guide to the right path</p>
-          </div>
+
+        {/* Back button — returns to wherever they came from */}
+        <Link
+          href={next === '/' ? '/' : next}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-brand-600 transition-colors mb-6"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 5l-7 7 7 7"/>
+          </svg>
+          Back
         </Link>
 
-        <h1 className="text-2xl font-black text-slate-800 mb-1">Welcome back</h1>
-        <p className="text-sm text-slate-400 mb-6">Log in to view and share your saved paths.</p>
+        <Link href="/" className="flex mb-8">
+          <Logo size={32} />
+        </Link>
+
+        <h1 className="text-2xl font-black text-brand-950 mb-1">Welcome back</h1>
+        <p className="text-sm text-slate-400 mb-6">Log in to view and manage your saved paths.</p>
 
         {resetSent && (
           <div className="bg-green-50 border border-green-200 text-green-700 text-sm rounded-xl px-4 py-3 mb-4">
@@ -137,7 +145,7 @@ function LoginForm() {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
               autoComplete="email"
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             />
           </div>
 
@@ -162,7 +170,7 @@ function LoginForm() {
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
                 required
                 autoComplete="current-password"
-                className="w-full border border-slate-200 rounded-xl px-4 py-3 pr-12 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+                className="w-full border border-slate-200 rounded-xl px-4 py-3 pr-12 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
               />
               <button
                 type="button"
@@ -177,7 +185,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-slate-800 hover:bg-slate-700 disabled:opacity-60 text-white font-black text-sm py-3.5 rounded-2xl transition-colors"
+            className="w-full bg-brand-gradient disabled:opacity-60 text-white font-black text-sm py-3.5 rounded-2xl active:opacity-80 transition-opacity"
           >
             {loading ? 'Logging in…' : 'Log in →'}
           </button>
@@ -185,7 +193,7 @@ function LoginForm() {
 
         <p className="text-center text-xs text-slate-400 mt-5">
           No account yet?{' '}
-          <Link href="/auth/register" className="text-indigo-600 font-bold">Create one free</Link>
+          <Link href="/auth/register" className="text-brand-600 font-bold">Create one free</Link>
         </p>
         <p className="text-center text-xs text-slate-300 mt-3">
           Protected by reCAPTCHA.

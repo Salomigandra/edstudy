@@ -9,9 +9,9 @@ export const metadata = {
 
 export default function GuidePage() {
   return (
-    <div className="max-w-lg mx-auto min-h-screen flex flex-col shadow-xl">
+    <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none">
       <Header backHref="/" title="🧭 Confused? Start Here" subtitle="Pick interests, not course names" />
-      <main className="flex-1 px-4 pt-4 pb-28">
+      <main className="flex-1 px-4 lg:px-8 pt-4 pb-28 lg:pb-10 lg:max-w-3xl lg:mx-auto lg:w-full">
         <GuideClient />
       </main>
       <BottomNav active="guide" />

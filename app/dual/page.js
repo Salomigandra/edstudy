@@ -83,10 +83,10 @@ const DUAL = [
 
 export default function DualPage() {
   return (
-    <div className="max-w-lg mx-auto min-h-screen flex flex-col shadow-xl">
+    <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none">
       <Header backHref="/" title="🔗 Dual & Integrated Courses" subtitle="Save time with combined degrees" />
 
-      <main className="flex-1 px-4 pt-4 pb-28 space-y-4">
+      <main className="flex-1 px-4 pt-4 pb-28 lg:pb-10 space-y-4">
         {/* Banner */}
         <div className="bg-slate-800 text-white rounded-2xl p-4">
           <p className="font-black text-lg mb-1">Integrated Degrees in India</p>

@@ -1,27 +1,24 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { createBrowserClient } from '@/lib/supabase';
 
-export default function SavedPathsClient({ initialPaths, userId, userEmail }) {
+export default function SavedPathsClient({ initialPaths, userId }) {
   const [paths, setPaths] = useState(initialPaths);
   const [deleting, setDeleting] = useState(null);
   const [shareMsg, setShareMsg] = useState('');
 
-  const deletePath = async (id) => {
+  const handleDelete = async (id) => {
     setDeleting(id);
-    try {
-      await fetch(`/api/paths?id=${id}`, { method: 'DELETE' });
-      setPaths((prev) => prev.filter((p) => p.id !== id));
-    } catch {
-      alert('Could not delete. Please try again.');
-    } finally {
-      setDeleting(null);
-    }
+    const supabase = createBrowserClient();
+    await supabase.from('saved_paths').delete().eq('id', id);
+    setPaths((prev) => prev.filter((p) => p.id !== id));
+    setDeleting(null);
   };
 
-  const sharePath = (path) => {
-    const text = `Education path I'm exploring:\n\n${path.path_text}\n\nStream: ${path.stream_name}\nCourse: ${path.course_name}${path.branch_name ? '\nBranch: ' + path.branch_name : ''}\n\nExplore more at edstudy.org`;
-
+  const handleShare = (path) => {
+    const course = Array.isArray(path.courses) ? path.courses[0] : path.courses;
+    const text = `Education path I'm exploring on EdStudy:\n\n📚 ${path.course_name}\n🎓 Stream: ${path.stream_name}\n💰 ${course?.salary_range ?? ''}\n\nFind yours at edstudy.in`;
     if (navigator.share) {
       navigator.share({ title: 'My Education Path', text });
     } else if (navigator.clipboard) {
@@ -33,15 +30,15 @@ export default function SavedPathsClient({ initialPaths, userId, userEmail }) {
 
   if (paths.length === 0) {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-16">
         <div className="text-5xl mb-4">🔖</div>
         <p className="font-black text-slate-800 text-lg mb-2">No saved paths yet</p>
-        <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-          Open any course and tap <strong>Save this path</strong> to add it here.
+        <p className="text-sm text-slate-500 mb-6 leading-relaxed max-w-xs mx-auto">
+          Open any course and tap the bookmark icon to save it here.
         </p>
         <Link
-          href="/"
-          className="inline-block bg-slate-800 text-white font-bold text-sm px-6 py-3 rounded-2xl"
+          href="/explore"
+          className="inline-flex items-center gap-2 bg-brand-gradient text-white font-bold text-sm px-6 py-3 rounded-2xl active:opacity-80 transition-opacity"
         >
           Explore courses →
         </Link>
@@ -50,64 +47,78 @@ export default function SavedPathsClient({ initialPaths, userId, userEmail }) {
   }
 
   return (
-    <div className="space-y-3">
-      <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+    <div className="space-y-4">
+      <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
         {paths.length} saved path{paths.length !== 1 ? 's' : ''}
       </p>
 
-      {paths.map((path) => (
-        <div key={path.id} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4">
-          <div className="flex items-start gap-3 mb-3">
-            <span className="text-2xl">🔖</span>
-            <div className="flex-1">
-              <p className="font-black text-slate-800 text-sm leading-tight">{path.course_name}</p>
-              {path.branch_name && (
-                <p className="text-xs text-indigo-600 font-semibold mt-0.5">{path.branch_name}</p>
+      {paths.map((path) => {
+        const course = Array.isArray(path.courses) ? path.courses[0] : path.courses;
+        return (
+          <div key={path.id} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+            <Link href={`/path/${course?.slug ?? ''}`} className="block p-4 active:bg-slate-50 transition-colors">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl flex-shrink-0">{course?.icon ?? '📚'}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="font-black text-sm text-slate-900 leading-tight">{path.course_name}</p>
+                  <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1">
+                    {path.stream_name && (
+                      <span className="text-[11px] text-brand-600 font-bold">{path.stream_name}</span>
+                    )}
+                    {course?.duration && (
+                      <span className="text-[11px] text-slate-400">⏱ {course.duration}</span>
+                    )}
+                  </div>
+                  {course?.salary_range && (
+                    <p className="text-[11px] font-bold text-emerald-600 mt-0.5">{course.salary_range}</p>
+                  )}
+                </div>
+                <svg
+                  width="16" height="16" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+                  className="text-slate-300 flex-shrink-0 mt-0.5"
+                >
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </div>
+
+              {path.notes && (
+                <div className="mt-3 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2 text-xs text-amber-800 leading-snug">
+                  📝 {path.notes}
+                </div>
               )}
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">{path.path_text}</p>
+
+              <p className="text-[10px] text-slate-400 mt-2">
+                Saved {new Date(path.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </p>
+            </Link>
+
+            <div className="flex border-t border-slate-100">
+              <button
+                onClick={() => handleShare(path)}
+                className="flex-1 text-xs font-bold text-brand-600 py-3 active:bg-brand-50 transition-colors"
+              >
+                {shareMsg === path.id ? '✓ Copied!' : '📤 Share'}
+              </button>
+              <div className="w-px bg-slate-100" />
+              <button
+                onClick={() => handleDelete(path.id)}
+                disabled={deleting === path.id}
+                className="flex-1 text-xs font-bold text-rose-500 py-3 active:bg-rose-50 transition-colors disabled:opacity-40"
+              >
+                {deleting === path.id ? '…' : '🗑 Remove'}
+              </button>
             </div>
           </div>
+        );
+      })}
 
-          <div className="flex flex-wrap gap-1.5 mb-3">
-            <span className="text-[10px] font-bold bg-slate-100 text-slate-600 rounded-full px-2.5 py-1">
-              {path.stream_name}
-            </span>
-            <span className="text-[10px] font-bold bg-slate-100 text-slate-500 rounded-full px-2.5 py-1">
-              Saved {new Date(path.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-            </span>
-          </div>
-
-          {path.notes && (
-            <div className="bg-amber-50 border border-amber-100 rounded-xl p-2 mb-3 text-xs text-amber-700">
-              {path.notes}
-            </div>
-          )}
-
-          <div className="flex gap-2">
-            <button
-              onClick={() => sharePath(path)}
-              className="flex-1 text-xs font-bold text-indigo-600 border border-indigo-200 bg-indigo-50 rounded-xl py-2 active:bg-indigo-100 transition-colors"
-            >
-              {shareMsg === path.id ? '✓ Copied!' : '📤 Share with parent'}
-            </button>
-            <button
-              onClick={() => deletePath(path.id)}
-              disabled={deleting === path.id}
-              className="text-xs font-bold text-red-500 border border-red-200 bg-red-50 rounded-xl px-3 py-2 active:bg-red-100 transition-colors disabled:opacity-50"
-            >
-              {deleting === path.id ? '…' : 'Remove'}
-            </button>
-          </div>
-        </div>
-      ))}
-
-      <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
-        <p className="font-bold text-slate-700 text-sm mb-1">💡 Next steps</p>
-        <ul className="text-xs text-slate-500 space-y-1 leading-relaxed">
-          <li>1. Compare your saved options with the Compare tab</li>
+      <div className="bg-brand-50 border border-brand-100 rounded-2xl p-4">
+        <p className="font-black text-brand-800 text-sm mb-2">Next steps</p>
+        <ul className="text-xs text-brand-700 space-y-1 leading-relaxed">
+          <li>1. Open a saved path to see full details</li>
           <li>2. Research entrance exams for your top choices</li>
-          <li>3. Share with parents using the button above</li>
-          <li>4. Visit college websites to check cut-offs and fees</li>
+          <li>3. Share with your parents using the Share button</li>
         </ul>
       </div>
     </div>
