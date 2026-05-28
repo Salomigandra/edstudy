@@ -7,7 +7,7 @@ import Logo from '@/components/Logo';
 
 export default function RegisterPage() {
   const router = useRouter();
-  const [form, setForm] = useState({ fullName: '', email: '', phone: '', password: '', confirm: '', stage: '' });
+  const [form, setForm] = useState({ fullName: '', email: '', phone: '', password: '', confirm: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -79,7 +79,6 @@ export default function RegisterPage() {
           data: {
             full_name: form.fullName,
             phone: form.phone,
-            class_stage: form.stage,
           },
           emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
@@ -171,21 +170,6 @@ export default function RegisterPage() {
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
               className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             />
-          </Field>
-
-          <Field label="Current class" required>
-            <select
-              value={form.stage}
-              onChange={(e) => setForm({ ...form, stage: e.target.value })}
-              required
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
-            >
-              <option value="">Select class / stage</option>
-              <option value="10th">Class 10 (choosing 11th stream)</option>
-              <option value="12th">Class 12 (choosing college)</option>
-              <option value="graduate">Graduate (exploring PG / career)</option>
-              <option value="other">Parent / Educator</option>
-            </select>
           </Field>
 
           <Field label="Password" required hint="Minimum 8 characters">
