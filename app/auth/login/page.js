@@ -102,6 +102,18 @@ function LoginForm() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center px-4 py-10">
       <div className="w-full max-w-sm mx-auto">
+
+        {/* Back button — returns to wherever they came from */}
+        <Link
+          href={next === '/' ? '/' : next}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-brand-600 transition-colors mb-6"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5M12 5l-7 7 7 7"/>
+          </svg>
+          Back
+        </Link>
+
         <Link href="/" className="flex mb-8">
           <Logo size={32} />
         </Link>
