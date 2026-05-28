@@ -9,10 +9,10 @@ export default function StreamsPage() {
   const streams = STREAMS.filter((s) => ['science', 'commerce', 'arts'].includes(s.id));
 
   return (
-    <div className="max-w-lg mx-auto min-h-screen flex flex-col shadow-xl">
+    <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none">
       <Header backHref="/" title="11th & 12th Streams" subtitle="Pick a stream → see all college options after 12th" />
 
-      <main className="flex-1 px-4 pt-4 pb-28">
+      <main className="flex-1 px-4 lg:px-8 pt-4 pb-28 lg:pb-10 lg:max-w-3xl lg:mx-auto lg:w-full">
         <div className="bg-slate-800 rounded-2xl p-4 text-white mb-5">
           <p className="text-2xl mb-1">📚</p>
           <p className="font-black text-lg">Choose Your Stream in 11th</p>

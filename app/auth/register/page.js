@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createBrowserClient } from '@/lib/supabase';
+import Logo from '@/components/Logo';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -101,12 +102,12 @@ export default function RegisterPage() {
       <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
         <div className="w-full max-w-sm text-center">
           <div className="text-6xl mb-4">📬</div>
-          <h1 className="text-2xl font-black text-slate-800 mb-2">Check your email!</h1>
+          <h1 className="text-2xl font-black text-brand-950 mb-2">Check your email!</h1>
           <p className="text-slate-500 text-sm leading-relaxed mb-6">
             We sent a confirmation link to <strong>{form.email}</strong>. Click it to activate your account, then log in.
           </p>
-          <Link href="/auth/login" className="inline-block bg-slate-800 text-white font-bold px-6 py-3 rounded-2xl text-sm">
-            Go to Login
+          <Link href="/auth/login" className="inline-block bg-brand-gradient text-white font-bold px-6 py-3 rounded-2xl text-sm active:opacity-80 transition-opacity">
+            Go to Login →
           </Link>
         </div>
       </div>
@@ -116,16 +117,11 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center px-4 py-10">
       <div className="w-full max-w-sm mx-auto">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 mb-8">
-          <span className="text-3xl">🎓</span>
-          <div>
-            <p className="font-black text-slate-800 text-sm leading-tight">India Education Pathways</p>
-            <p className="text-xs text-slate-400">Your guide to the right path</p>
-          </div>
+        <Link href="/" className="flex mb-8">
+          <Logo size={32} />
         </Link>
 
-        <h1 className="text-2xl font-black text-slate-800 mb-1">Create account</h1>
+        <h1 className="text-2xl font-black text-brand-950 mb-1">Create account</h1>
         <p className="text-sm text-slate-400 mb-6">Save paths and share with parents from any device.</p>
 
         {error && (
@@ -142,7 +138,7 @@ export default function RegisterPage() {
               value={form.fullName}
               onChange={(e) => setForm({ ...form, fullName: e.target.value })}
               required
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             />
           </Field>
 
@@ -153,7 +149,7 @@ export default function RegisterPage() {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             />
           </Field>
 
@@ -163,7 +159,7 @@ export default function RegisterPage() {
               placeholder="+91 98765 43210"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             />
           </Field>
 
@@ -172,7 +168,7 @@ export default function RegisterPage() {
               value={form.stage}
               onChange={(e) => setForm({ ...form, stage: e.target.value })}
               required
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             >
               <option value="">Select class / stage</option>
               <option value="10th">Class 10 (choosing 11th stream)</option>
@@ -191,7 +187,7 @@ export default function RegisterPage() {
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
                 required
                 minLength={8}
-                className="w-full border border-slate-200 rounded-xl px-4 py-3 pr-12 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+                className="w-full border border-slate-200 rounded-xl px-4 py-3 pr-12 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
               />
               <button
                 type="button"
@@ -210,14 +206,14 @@ export default function RegisterPage() {
               value={form.confirm}
               onChange={(e) => setForm({ ...form, confirm: e.target.value })}
               required
-              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition"
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition"
             />
           </Field>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-slate-800 hover:bg-slate-700 disabled:opacity-60 text-white font-black text-sm py-3.5 rounded-2xl transition-colors"
+            className="w-full bg-brand-gradient disabled:opacity-60 text-white font-black text-sm py-3.5 rounded-2xl active:opacity-80 transition-opacity"
           >
             {loading ? 'Creating account…' : 'Create account →'}
           </button>
@@ -225,7 +221,7 @@ export default function RegisterPage() {
 
         <p className="text-center text-xs text-slate-400 mt-5">
           Already have an account?{' '}
-          <Link href="/auth/login" className="text-indigo-600 font-bold">Log in</Link>
+          <Link href="/auth/login" className="text-brand-600 font-bold">Log in</Link>
         </p>
         <p className="text-center text-xs text-slate-300 mt-3 leading-relaxed">
           Protected by reCAPTCHA. Your data is stored securely and never shared.
