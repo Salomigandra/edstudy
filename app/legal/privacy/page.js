@@ -2,8 +2,8 @@ import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 
 export const metadata = {
-  title: 'Privacy Policy — EdStudy',
-  description: 'How EdStudy collects, uses, and protects your personal information.',
+  title: 'Privacy Policy',
+  description: 'How Pathsy collects, uses, and protects your personal information.',
 };
 
 export default function PrivacyPage() {
@@ -15,8 +15,8 @@ export default function PrivacyPage() {
         <p className="text-xs text-slate-400 mb-6">Last updated: May 2026</p>
 
         <Section title="1. Overview">
-          EdStudy is committed to protecting your privacy. This policy explains what information we
-          collect, how we use it, and your rights regarding that information. By using EdStudy, you
+          Pathsy is committed to protecting your privacy. This policy explains what information we
+          collect, how we use it, and your rights regarding that information. By using Pathsy, you
           agree to the collection and use of information as described here.
         </Section>
 
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
 
         <Section title="3. How We Use Your Information">
           <ul className="list-disc pl-5 space-y-1">
-            <li>To provide and improve the EdStudy service</li>
+            <li>To provide and improve the Pathsy service</li>
             <li>To save your bookmarked paths and profile preferences</li>
             <li>To send account-related emails (password reset, verification)</li>
             <li>To understand how students use the platform (aggregate, anonymised analytics)</li>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
         </Section>
 
         <Section title="4. Authentication and Security">
-          EdStudy uses{' '}
+          Pathsy uses{' '}
           <a
             href="https://supabase.com"
             target="_blank"
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
         </Section>
 
         <Section title="5. Cookies and Local Storage">
-          EdStudy uses session cookies set by Supabase Auth to keep you logged in. We do not use
+          Pathsy uses session cookies set by Supabase Auth to keep you logged in. We do not use
           tracking cookies or third-party advertising cookies. You can clear cookies at any time via
           your browser settings, which will log you out.
         </Section>
@@ -73,8 +73,8 @@ export default function PrivacyPage() {
         <Section title="6. Data Retention">
           Your account data is retained for as long as your account is active. If you wish to
           delete your account and all associated data, contact us at{' '}
-          <a href="mailto:salomigandra234@gmail.com" className="text-brand-600 underline">
-            salomigandra234@gmail.com
+          <a href="mailto:hello@pathsy.org" className="text-brand-600 underline">
+            hello@pathsy.org
           </a>{' '}
           and we will process your request within 30 days.
         </Section>
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
         </Section>
 
         <Section title="8. Children's Privacy">
-          EdStudy is designed for students aged 15 and above. We do not knowingly collect personal
+          Pathsy is designed for students aged 15 and above. We do not knowingly collect personal
           information from children under 13. If you believe a child under 13 has provided us with
           personal information, please contact us and we will delete it promptly.
         </Section>
@@ -112,8 +112,8 @@ export default function PrivacyPage() {
           </ul>
           <p className="mt-2">
             To exercise any of these rights, email{' '}
-            <a href="mailto:salomigandra234@gmail.com" className="text-brand-600 underline">
-              salomigandra234@gmail.com
+            <a href="mailto:hello@pathsy.org" className="text-brand-600 underline">
+              hello@pathsy.org
             </a>
             .
           </p>
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
 
         <Section title="10. Changes to This Policy">
           We may update this Privacy Policy from time to time. The date at the top of this page
-          shows when it was last revised. Continued use of EdStudy after changes are posted
+          shows when it was last revised. Continued use of Pathsy after changes are posted
           constitutes acceptance of the updated policy.
         </Section>
       </main>

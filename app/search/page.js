@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import SearchClient from '@/components/SearchClient';
 
-export const metadata = { title: 'Search — EdStudy' };
+export const metadata = { title: 'Search Courses' };
 
 export default function SearchPage({ searchParams }) {
   const initialQuery = searchParams?.q ?? '';

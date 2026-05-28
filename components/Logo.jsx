@@ -2,7 +2,7 @@ export default function Logo({ size = 36, showText = true }) {
   return (
     <div className="flex items-center gap-2.5">
       {/*
-        "The Open Path" — EdStudy logo mark.
+        "The Open Path" — Pathsy logo mark.
 
         Concept (inspired by reference):
           · Open book — knowledge base, the platform itself
@@ -137,10 +137,10 @@ export default function Logo({ size = 36, showText = true }) {
         />
       </svg>
 
-      {/* Wordmark — "Ed" near-black, "Study" deep navy to match the mark */}
+      {/* Wordmark — "Path" near-black, "sy" deep navy to match the mark */}
       {showText && (
         <span className="text-[18px] font-black tracking-tight leading-none text-slate-900">
-          Ed<span className="text-[#1e3a8a]">Study</span>
+          Path<span className="text-[#1e3a8a]">sy</span>
         </span>
       )}
     </div>

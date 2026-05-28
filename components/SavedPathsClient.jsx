@@ -18,7 +18,7 @@ export default function SavedPathsClient({ initialPaths, userId }) {
 
   const handleShare = (path) => {
     const course = Array.isArray(path.courses) ? path.courses[0] : path.courses;
-    const text = `Education path I'm exploring on EdStudy:\n\n📚 ${path.course_name}\n🎓 Stream: ${path.stream_name}\n💰 ${course?.salary_range ?? ''}\n\nFind yours at edstudy.in`;
+    const text = `Education path I'm exploring on Pathsy:\n\n📚 ${path.course_name}\n🎓 Stream: ${path.stream_name}\n💰 ${course?.salary_range ?? ''}\n\nFind yours at pathsy.org`;
     if (navigator.share) {
       navigator.share({ title: 'My Education Path', text });
     } else if (navigator.clipboard) {

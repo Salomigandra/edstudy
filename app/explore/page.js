@@ -32,8 +32,8 @@ const STAGE_META = {
 
 export async function generateMetadata({ searchParams }) {
   const stage = searchParams?.stage;
-  if (stage) return { title: `Explore ${stage.replace(/_/g, ' ')} — EdStudy` };
-  return { title: 'Explore Education Paths — EdStudy' };
+  if (stage) return { title: `Explore ${stage.replace(/_/g, ' ')}` };
+  return { title: 'Explore Education Paths' };
 }
 
 export default async function ExplorePage({ searchParams }) {

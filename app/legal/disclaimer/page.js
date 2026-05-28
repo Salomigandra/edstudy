@@ -2,8 +2,8 @@ import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 
 export const metadata = {
-  title: 'Disclaimer — EdStudy',
-  description: 'Important disclaimer about the information provided on EdStudy.',
+  title: 'Disclaimer',
+  description: 'Important disclaimer about the information provided on Pathsy.',
 };
 
 export default function DisclaimerPage() {
@@ -19,7 +19,7 @@ export default function DisclaimerPage() {
           <div className="flex gap-3">
             <span className="text-xl flex-shrink-0">⚠️</span>
             <p className="text-sm text-amber-800 leading-relaxed">
-              EdStudy provides general educational guidance only. Always verify course details,
+              Pathsy provides general educational guidance only. Always verify course details,
               fees, eligibility, and exam dates directly with the official institution or exam
               authority before making any decisions.
             </p>
@@ -27,22 +27,22 @@ export default function DisclaimerPage() {
         </div>
 
         <Section title="1. General Information Only">
-          The information on EdStudy — including course descriptions, eligibility criteria, fee
+          The information on Pathsy — including course descriptions, eligibility criteria, fee
           ranges, salary data, entrance exam details, and career guidance — is provided for general
           informational purposes only. It does not constitute professional career counselling,
           legal advice, or financial advice.
         </Section>
 
         <Section title="2. Accuracy of Information">
-          While EdStudy makes every effort to keep information accurate and current, education
+          While Pathsy makes every effort to keep information accurate and current, education
           policies in India change frequently. Admission criteria, fee structures, course
           availability, and entrance exam patterns are subject to change by universities, boards, and
-          government authorities at any time. EdStudy cannot guarantee that all information is
+          government authorities at any time. Pathsy cannot guarantee that all information is
           complete, accurate, or up to date at any given moment.
         </Section>
 
         <Section title="3. Salary and Career Data">
-          Salary figures shown on EdStudy (Fresher, Junior, Mid, Senior levels) are indicative
+          Salary figures shown on Pathsy (Fresher, Junior, Mid, Senior levels) are indicative
           estimates based on publicly available data and industry trends as of the time of
           publication. Actual salaries vary significantly based on institution attended, location,
           employer, individual performance, economic conditions, and many other factors. These
@@ -50,36 +50,36 @@ export default function DisclaimerPage() {
         </Section>
 
         <Section title="4. No Guarantee of Admission or Outcomes">
-          EdStudy does not guarantee admission to any college, university, or programme. Information
+          Pathsy does not guarantee admission to any college, university, or programme. Information
           about entrance exams, cutoffs, or eligibility does not represent official admission
           requirements. Contact the respective institution directly for the most current and
           authoritative admission information.
         </Section>
 
         <Section title="5. Third-Party Links and Resources">
-          EdStudy may reference external websites, institutions, or exam bodies. We have no control
+          Pathsy may reference external websites, institutions, or exam bodies. We have no control
           over the content or accuracy of external sites and are not responsible for any information
           found there. A reference to an external resource does not constitute an endorsement.
         </Section>
 
         <Section title="6. Quiz and Recommendations">
-          The 5-question quiz on EdStudy provides weighted stream suggestions based on your
+          The 5-question quiz on Pathsy provides weighted stream suggestions based on your
           responses. These are exploratory suggestions only — not a professional assessment of your
           aptitude, interests, or suitability for any career. We strongly encourage students to also
           seek guidance from school counsellors, teachers, and parents.
         </Section>
 
         <Section title="7. Limitation of Liability">
-          EdStudy and its creators shall not be held liable for any decisions made — academic,
-          financial, or otherwise — based on information found on this platform. Use of EdStudy is
+          Pathsy and its creators shall not be held liable for any decisions made — academic,
+          financial, or otherwise — based on information found on this platform. Use of Pathsy is
           entirely at your own risk.
         </Section>
 
         <Section title="8. Contact">
-          If you find incorrect or outdated information on EdStudy, please help us improve by
+          If you find incorrect or outdated information on Pathsy, please help us improve by
           reporting it to{' '}
-          <a href="mailto:salomigandra234@gmail.com" className="text-brand-600 underline">
-            salomigandra234@gmail.com
+          <a href="mailto:hello@pathsy.org" className="text-brand-600 underline">
+            hello@pathsy.org
           </a>
           .
         </Section>

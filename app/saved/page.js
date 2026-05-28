@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import SavedPathsClient from '@/components/SavedPathsClient';
 
-export const metadata = { title: 'Saved Paths — EdStudy' };
+export const metadata = { title: 'Saved Paths' };
 
 export default async function SavedPage() {
   const supabase = createServerClient();

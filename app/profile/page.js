@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import ProfileClient from './ProfileClient';
 
-export const metadata = { title: 'Profile — EdStudy' };
+export const metadata = { title: 'My Profile' };
 
 export default async function ProfilePage() {
   const supabase = createServerClient();

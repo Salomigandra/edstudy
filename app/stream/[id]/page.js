@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
     .single();
   if (!stream) return {};
   return {
-    title: `${stream.name} — EdStudy`,
+    title: stream.name,
     description: stream.description ?? `All education options for ${stream.name} students in India.`,
   };
 }

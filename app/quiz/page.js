@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import QuizClient from './QuizClient';
 
-export const metadata = { title: 'Career Quiz — EdStudy' };
+export const metadata = { title: 'Career Quiz' };
 
 export default async function QuizPage() {
   const supabase = createPublicClient();

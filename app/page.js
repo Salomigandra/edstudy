@@ -71,7 +71,7 @@ export default async function HomePage() {
         <div className="relative overflow-hidden rounded-3xl bg-brand-gradient p-6 text-white shadow-lg">
           <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-white/10" />
           <div className="absolute -bottom-12 -left-8 w-36 h-36 rounded-full bg-white/5" />
-          <p className="text-[11px] font-bold tracking-widest uppercase text-brand-200 mb-1">EdStudy</p>
+          <p className="text-[11px] font-bold tracking-widest uppercase text-brand-200 mb-1">Pathsy</p>
           <h1 className="text-[22px] font-black leading-snug relative">
             Discover your path<br />after Class 10 or 12
           </h1>
@@ -206,7 +206,7 @@ export default async function HomePage() {
           <span className="text-slate-300 text-[11px]">·</span>
           <Link href="/legal/disclaimer" className="text-[11px] text-slate-400 hover:text-brand-600 transition-colors">Disclaimer</Link>
         </div>
-        <p className="text-[10px] text-slate-300 mt-2">© 2026 EdStudy. All rights reserved.</p>
+        <p className="text-[10px] text-slate-300 mt-2">© 2026 Pathsy. All rights reserved.</p>
       </footer>
 
       <BottomNav />

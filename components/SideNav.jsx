@@ -113,7 +113,7 @@ export default function SideNav() {
       {/* Footer */}
       <div className="px-5 py-4 border-t border-slate-100">
         <p className="text-[11px] text-slate-400 leading-snug">
-          © 2025 EdStudy · For educational guidance only.
+          © 2026 Pathsy · For educational guidance only.
         </p>
       </div>
     </aside>

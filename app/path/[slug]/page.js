@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
     .single();
   if (!course) return {};
   return {
-    title: `${course.name} — EdStudy`,
+    title: course.name,
     description: course.description ?? `Everything about ${course.name} in India.`,
   };
 }
