@@ -1,4 +1,6 @@
-import { createPublicClient } from '@/lib/supabaseServer';
+import { createCachedClient } from '@/lib/supabaseServer';
+
+export const revalidate = 3600;
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import ComparePicker from '@/components/ComparePicker';
@@ -100,7 +102,7 @@ export default async function ComparePage({ searchParams }) {
   const slugA = searchParams?.a;
   const slugB = searchParams?.b;
 
-  const supabase = createPublicClient();
+  const supabase = createCachedClient();
 
   let courseA = null;
   let courseB = null;

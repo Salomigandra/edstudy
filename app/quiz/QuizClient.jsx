@@ -61,6 +61,22 @@ const STREAM_JOURNEY = {
       { icon: '💼', label: 'Army / Navy / Air Force Officer', sub: 'Your career' },
     ],
   },
+  pharmacy: {
+    nodes: [
+      { icon: '🏫', label: 'Class 12', sub: 'Science / BiPC stream' },
+      { icon: '📝', label: 'TG EAPCET / GPAT', sub: 'Entrance exam' },
+      { icon: '🎓', label: 'B.Pharm / Pharm.D', sub: '4–6 years' },
+      { icon: '💼', label: 'Pharmacist / Drug Inspector / Research', sub: 'Your career' },
+    ],
+  },
+  integrated: {
+    nodes: [
+      { icon: '🏫', label: 'Class 12', sub: 'Any stream' },
+      { icon: '📝', label: 'CLAT / TG LAWCET / CUET', sub: 'Entrance exam' },
+      { icon: '🎓', label: 'BA LL.B / BBA LL.B / Integrated MBA', sub: '5 years' },
+      { icon: '💼', label: 'Lawyer / Manager / Teacher / Consultant', sub: 'Your career' },
+    ],
+  },
 };
 
 const DEFAULT_JOURNEY = {

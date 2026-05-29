@@ -1,5 +1,6 @@
 import './globals.css';
 import SideNav from '@/components/SideNav';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   metadataBase: new URL('https://www.pathsy.org'),
@@ -112,6 +113,7 @@ export default function RootLayout({ children }) {
         <div className="lg:pl-64">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );

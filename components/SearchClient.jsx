@@ -4,27 +4,37 @@ import Link from 'next/link';
 import { createBrowserClient } from '@/lib/supabase';
 
 const SYNONYMS = {
-  doctor: ['mbbs', 'medicine', 'bds', 'nursing', 'bams'],
-  computer: ['software', 'programming', 'coding', 'bca', 'cs'],
+  doctor: ['mbbs', 'medicine', 'bds', 'nursing', 'bams', 'ayush', 'physiotherapy', 'bpt'],
+  computer: ['software', 'programming', 'coding', 'bca', 'cs', 'data science', 'ai', 'cybersecurity'],
   army: ['nda', 'defence', 'military', 'cds', 'afcat'],
-  finance: ['ca', 'accounting', 'bcom', 'money', 'banking'],
+  finance: ['ca', 'accounting', 'bcom', 'money', 'banking', 'cma', 'cs'],
   design: ['nid', 'nift', 'architecture', 'fashion', 'ux'],
-  teacher: ['b.ed', 'education', 'ctet', 'teaching'],
-  law: ['clat', 'llb', 'nlu', 'legal', 'lawyer'],
+  teacher: ['b.ed', 'education', 'ctet', 'teaching', 'ba bed', 'bsc bed', 'integrated teaching'],
+  law: ['clat', 'llb', 'nlu', 'legal', 'lawyer', 'ba llb', 'bba llb', 'bcom llb', 'integrated law'],
   pilot: ['aviation', 'flying', 'airline', 'aeronautics'],
   nursing: ['bsc nursing', 'gnm', 'anm', 'healthcare nurse'],
+  pharmacy: ['pharma', 'bpharm', 'pharmd', 'drug', 'pharmaceutical', 'gpat'],
+  engineering: ['btech', 'be', 'jee', 'mechanical', 'electrical', 'civil', 'cse'],
+  biology: ['bipc', 'pcb', 'life science', 'bsc biology', 'botany', 'zoology', 'microbiology'],
+  business: ['bba', 'mba', 'bbm', 'bms', 'management', 'entrepreneurship', 'integrated mba'],
+  psychology: ['counselling', 'mental health', 'ba psychology', 'clinical psychology'],
+  media: ['journalism', 'mass communication', 'media studies', 'advertising', 'pr'],
+  hotel: ['hospitality', 'tourism', 'hotel management', 'nchmct', 'catering'],
+  dental: ['bds', 'dentist', 'oral health', 'dental surgery'],
+  ayurveda: ['bams', 'ayush', 'homeopathy', 'bhms', 'unani', 'naturopathy'],
 };
 
 const POPULAR = [
   { label: 'Doctor / MBBS', q: 'doctor' },
   { label: 'Software / BCA', q: 'computer' },
   { label: 'CA / Finance', q: 'finance' },
-  { label: 'Army / NDA', q: 'army' },
-  { label: 'Design / NIFT', q: 'design' },
-  { label: 'Teacher / B.Ed', q: 'teacher' },
   { label: 'Law / CLAT', q: 'law' },
+  { label: 'Pharmacy', q: 'pharmacy' },
+  { label: 'Army / NDA', q: 'army' },
+  { label: 'Teacher / B.Ed', q: 'teacher' },
+  { label: 'Design / NIFT', q: 'design' },
+  { label: 'Business / MBA', q: 'business' },
   { label: 'Nursing', q: 'nursing' },
-  { label: 'Pilot / Aviation', q: 'pilot' },
 ];
 
 async function searchDB(raw) {
