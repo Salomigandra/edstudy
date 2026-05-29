@@ -1,149 +1,360 @@
+import { createPublicClient } from '@/lib/supabaseServer';
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
+import ComparePicker from '@/components/ComparePicker';
+import Link from 'next/link';
+import { getPathSupplementary } from '@/data/pathSupplementary';
 
 export const metadata = {
-  title: 'Compare Courses — India Education Pathways',
-  description: 'Side-by-side comparison of common course doubts: B.Tech vs BCA, BBA vs B.Com, MBBS vs Allied Health, and more.',
+  title: 'Compare Courses — Pathsy',
+  description: 'Pick any two courses and see them side by side — entry, skills, careers, and who each one is right for.',
 };
 
-const COMPARISONS = [
-  {
-    title: 'B.Tech vs BCA / B.Sc CS',
-    icon: '💻',
-    rows: [
-      ['Entry', 'JEE Main/Advanced required for top colleges', 'Merit / CUET / state entrance'],
-      ['Duration', '4 years', '3 years (BCA/B.Sc)'],
-      ['Depth', 'Full engineering + CS — stronger for core tech companies', 'CS/IT focused — good with skills + portfolio'],
-      ['Cost', '₹4–15 LPA for private; IIT/NIT is heavily subsidized', 'Generally lower cost'],
-      ['Top PG', 'M.Tech (GATE) → IIT; MBA → IIM; MS abroad', 'MCA (NIMCET); M.Sc CS; MBA Tech'],
-      ['Best for', 'Students ready to work hard for JEE, want top tech placement', 'Students who like computers but want easier entry or shorter path'],
-    ],
-  },
-  {
-    title: 'B.Sc vs B.Tech',
-    icon: '🔬',
-    rows: [
-      ['Focus', 'Pure science — research, theory, labs, analytics', 'Engineering — building, making, applying technology'],
-      ['Entry', 'CUET / JAM / state merit — generally less competitive', 'JEE / state CETs — competitive'],
-      ['Duration', '3 years (+ M.Sc 2 years)', '4 years'],
-      ['Jobs', 'Research, data analytics, pharma, teaching, UPSC', 'Engineering, IT, product, manufacturing'],
-      ['PG options', 'M.Sc → PhD; IIT JAM; GATE possible in some', 'M.Tech; MBA; MS abroad'],
-      ['Best for', 'Students who love science itself — biology, physics, chemistry', 'Students who want to build, code or work in tech industry'],
-    ],
-  },
-  {
-    title: 'BBA vs B.Com',
-    icon: '💰',
-    rows: [
-      ['Focus', 'Management, business strategy, marketing, HR, operations', 'Accounting, finance, tax, commerce and professional exams'],
-      ['Entry', 'NPAT / SET / IPU CET / college entrance', 'CUET / university entrance / merit'],
-      ['CA/CMA path', 'Possible but not the natural fit', 'Very natural combination — commerce depth matches well'],
-      ['MBA path', 'Natural step — management to management PG', 'Possible — requires bridging for pure management'],
-      ['Jobs', 'Business analyst, marketing associate, startup, sales', 'Accountant, tax consultant, bank officer, CA firm'],
-      ['Best for', 'Students who want management, marketing, startups and leadership', 'Students who like numbers, accounts, tax, compliance and finance'],
-    ],
-  },
-  {
-    title: 'MBBS vs Allied Health',
-    icon: '🏥',
-    rows: [
-      ['Entry', 'NEET-UG mandatory — very competitive (top 1–3% get good seats)', 'State allied health CET / NEET for some / university entrance'],
-      ['Duration', '5.5 years + 1 yr internship', '2–4 years depending on course'],
-      ['Scope', 'Doctor — diagnosis, treatment, prescriptions', 'Specific healthcare roles (physio, pharmacy, nursing, lab tech)'],
-      ['Cost', 'Govt college very affordable; private ₹50L–1Cr+', 'Generally lower cost'],
-      ['Salary', '₹10–80 LPA+ with specialization', '₹3–15 LPA India; ₹30–50+ LPA abroad (nursing, PT)'],
-      ['Best for', 'Students who score high in NEET and genuinely want to be doctors', 'Students who want healthcare careers without the NEET pressure'],
-    ],
-  },
-  {
-    title: 'ITI vs Polytechnic',
-    icon: '🔧',
-    rows: [
-      ['After', 'Class 10 — 1–2 year trade certificate', 'Class 10 — 3 year engineering diploma'],
-      ['Depth', 'Specific trade skill (electrician, fitter, COPA, mechanic)', 'Broader engineering foundation — closer to B.Tech first 2 years'],
-      ['Job speed', 'Very fast — ready in 1–2 years', 'Moderate — 3 years but stronger base'],
-      ['Further study', 'Apprenticeship, NSDC certs, Polytechnic lateral entry possible', 'B.Tech Lateral Entry (2nd year) — saves 1 year of B.Tech'],
-      ['Govt jobs', 'Trade-based Govt posts', 'SSC JE / RRB JE / AMIE route possible'],
-      ['Best for', 'Students who want a specific trade skill and early employment', 'Students who want engineering foundation with option to do B.Tech later'],
-    ],
-  },
-  {
-    title: 'B.Ed vs Integrated B.Ed',
-    icon: '🏫',
-    rows: [
-      ['When', 'After graduation (any degree) — 2 years', 'After Class 12 — 4 years (BA/B.Sc/B.Com B.Ed)'],
-      ['Entry', 'State B.Ed CET / university entrance', 'NCET (National Common Entrance Test) / ITEP'],
-      ['Time saving', 'No — you spend 3+2 = 5 years total', 'Yes — only 4 years total (saves 1 year)'],
-      ['Flexibility', 'High — choose any subject degree first', 'Lower — committed to teaching from Class 12'],
-      ['Both lead to', 'CTET / State TET eligibility, school teacher roles', 'CTET / State TET eligibility, school teacher roles'],
-      ['Best for', 'Students unsure about teaching, want to explore first', 'Students who are sure they want to teach — saves time'],
-    ],
-  },
-  {
-    title: 'BA LLB vs LLB after Graduation',
-    icon: '⚖️',
-    rows: [
-      ['Duration', '5 years integrated after Class 12', '3 years after any graduation — total ~6 years'],
-      ['Entry', 'CLAT · AILET · LSAT India — competitive', 'State bar entrance — varies'],
-      ['Specializations', 'Corporate, criminal, constitutional, IP, tax law', 'Same — same legal career options'],
-      ['Time saving', 'Yes — 1 year shorter total path', 'Allows a different degree first (may be useful)'],
-      ['Best for', 'Students sure about law right after 12th', 'Students who want to try another field first, or law as a second career'],
-    ],
-  },
+const PRESET_PAIRS = [
+  { a: 'science-b-tech-be', b: 'science-bca-b-sc-cs', label: 'B.Tech vs BCA / B.Sc CS', icon: '💻' },
+  { a: 'science-b-tech-be', b: 'science-b-sc-science', label: 'B.Tech vs B.Sc Science', icon: '🔬' },
+  { a: 'science-mbbs-medical', b: 'science-allied-health-sciences', label: 'MBBS vs Allied Health', icon: '🏥' },
+  { a: 'commerce-bba-bms', b: 'commerce-hotel-tourism-hospitality', label: 'BBA vs Hotel Management', icon: '🏨' },
+  { a: 'commerce-bba-bms', b: 'commerce-b-com-b-com-hons', label: 'BBA vs B.Com', icon: '💰' },
+  { a: 'commerce-ca-cma-cs', b: 'commerce-b-com-b-com-hons', label: 'CA/CMA vs B.Com', icon: '📊' },
+  { a: 'arts-ba-honours', b: 'arts-ba-llb-law', label: 'BA Hons vs BA LLB', icon: '⚖️' },
+  { a: 'arts-bsw-social-work', b: 'arts-ba-psychology', label: 'Social Work vs Psychology', icon: '🤝' },
+  { a: 'arts-journalism-mass-communication', b: 'arts-ba-honours', label: 'Journalism vs BA Honours', icon: '📰' },
+  { a: 'arts-ba-psychology', b: 'science-mbbs-medical', label: 'BA Psychology vs MBBS', icon: '🧠' },
 ];
 
-export default function ComparePage() {
+const DIRECTION_LABEL = {
+  growing: { label: 'Growing', color: '#16a34a', bg: '#f0fdf4' },
+  stable: { label: 'Stable', color: '#0284c7', bg: '#f0f9ff' },
+  shifting: { label: 'Shifting', color: '#d97706', bg: '#fffbeb' },
+};
+
+async function fetchCourse(supabase, slug) {
+  const { data } = await supabase
+    .from('courses')
+    .select(`
+      id, slug, name, icon, duration, description, fit_for, pg_options, colleges,
+      streams!inner(id, slug, name, color, color_light),
+      salary_ranges(id, label, range_text, sort_order),
+      specializations(id, name, sort_order, career_roles(id, name, sort_order)),
+      course_entrance_exams(is_mandatory, entrance_exams(id, name, full_name, level))
+    `)
+    .eq('slug', slug)
+    .eq('is_active', true)
+    .single();
+  return data;
+}
+
+function getTopCareers(course) {
+  const specs = (course.specializations ?? []).sort((a, b) => a.sort_order - b.sort_order);
+  const careers = [];
+  for (const spec of specs.slice(0, 3)) {
+    const roles = (spec.career_roles ?? []).sort((a, b) => a.sort_order - b.sort_order);
+    careers.push(...roles.slice(0, 2).map(r => r.name));
+    if (careers.length >= 5) break;
+  }
+  return careers.slice(0, 5);
+}
+
+function getFirstExam(course) {
+  const exams = (course.course_entrance_exams ?? []).map(ce => ({
+    ...ce.entrance_exams, is_mandatory: ce.is_mandatory,
+  }));
+  return exams.find(e => e.is_mandatory) ?? exams[0] ?? null;
+}
+
+function CompareRow({ label, icon, aContent, bContent, aColor }) {
   return (
-    <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none">
-      <Header backHref="/" title="⚖️ Compare Courses" subtitle="Clear answers to common doubts" />
-
-      <main className="flex-1 px-4 pt-4 pb-28 lg:pb-10 space-y-4">
-        <div className="bg-slate-800 text-white rounded-2xl p-4">
-          <p className="font-black text-lg mb-1">Common Course Doubts</p>
-          <p className="text-sm text-slate-300 leading-relaxed">
-            These comparisons explain differences clearly — but they do not decide for you. The right choice depends on interest, budget, exam readiness and long-term goals.
-          </p>
+    <div className="border-b border-slate-100 last:border-0">
+      <div className="px-4 pt-3 pb-1">
+        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1">
+          <span>{icon}</span>{label}
+        </p>
+      </div>
+      <div className="grid grid-cols-2 gap-0">
+        <div className="px-4 pb-3 pr-2 border-r border-slate-100" style={{ borderLeftColor: aColor, borderLeftWidth: 3 }}>
+          {aContent}
         </div>
+        <div className="px-4 pb-3 pl-3">
+          {bContent}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-        {COMPARISONS.map((c) => (
-          <div key={c.title} className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-100 bg-slate-50">
-              <span className="text-xl">{c.icon}</span>
-              <p className="font-black text-slate-800 text-sm">{c.title}</p>
+function SkillChips({ skills }) {
+  if (!skills?.length) return <p className="text-xs text-slate-400 italic">Not available</p>;
+  return (
+    <div className="flex flex-wrap gap-1">
+      {skills.slice(0, 4).map((s, i) => (
+        <span key={i} className="text-[10px] font-semibold bg-slate-100 text-slate-600 rounded-lg px-2 py-0.5">
+          {s.transferable ? '🔁' : '🎯'} {s.name}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export default async function ComparePage({ searchParams }) {
+  const slugA = searchParams?.a;
+  const slugB = searchParams?.b;
+
+  const supabase = createPublicClient();
+
+  let courseA = null;
+  let courseB = null;
+
+  if (slugA && slugB) {
+    [courseA, courseB] = await Promise.all([
+      fetchCourse(supabase, slugA),
+      fetchCourse(supabase, slugB),
+    ]);
+  }
+
+  const suppA = slugA ? getPathSupplementary(slugA) : null;
+  const suppB = slugB ? getPathSupplementary(slugB) : null;
+
+  const streamA = courseA ? (Array.isArray(courseA.streams) ? courseA.streams[0] : courseA.streams) : null;
+  const streamB = courseB ? (Array.isArray(courseB.streams) ? courseB.streams[0] : courseB.streams) : null;
+
+  const colorA = streamA?.color ?? '#7c3aed';
+  const colorB = streamB?.color ?? '#0284c7';
+
+  const examA = courseA ? getFirstExam(courseA) : null;
+  const examB = courseB ? getFirstExam(courseB) : null;
+
+  const careersA = courseA ? getTopCareers(courseA) : [];
+  const careersB = courseB ? getTopCareers(courseB) : [];
+
+  const salA = courseA ? (courseA.salary_ranges ?? []).sort((a, b) => a.sort_order - b.sort_order) : [];
+  const salB = courseB ? (courseB.salary_ranges ?? []).sort((a, b) => a.sort_order - b.sort_order) : [];
+
+  const dirA = suppA ? DIRECTION_LABEL[suppA.marketDirection] : null;
+  const dirB = suppB ? DIRECTION_LABEL[suppB.marketDirection] : null;
+
+  return (
+    <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none bg-slate-50">
+      <Header backHref="/" title="⚖️ Compare Courses" subtitle="See what each path actually means" />
+
+      <main className="flex-1 px-4 lg:px-8 pt-5 pb-28 lg:pb-10 space-y-5 lg:max-w-3xl lg:mx-auto lg:w-full">
+
+        {/* ── Pick your own ── */}
+        <ComparePicker initialA={slugA} initialB={slugB} />
+
+        {/* ── Comparison result ── */}
+        {courseA && courseB ? (
+          <div className="space-y-5">
+
+            {/* Course headers */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { course: courseA, stream: streamA, color: colorA },
+                { course: courseB, stream: streamB, color: colorB },
+              ].map(({ course, stream, color }, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl p-4 text-white shadow-md"
+                  style={{ background: `linear-gradient(135deg, ${color}, ${color}aa)` }}
+                >
+                  <p className="text-3xl mb-2">{course.icon}</p>
+                  <p className="font-black text-sm leading-tight">{course.name}</p>
+                  <p className="text-[11px] text-white/80 mt-1">{stream?.name}</p>
+                  {course.duration && (
+                    <p className="text-[11px] text-white/80 mt-0.5">⏱ {course.duration}</p>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs">
-                <thead>
-                  <tr className="bg-indigo-50">
-                    <th className="text-left px-3 py-2 font-bold text-slate-500 w-1/4">What to check</th>
-                    <th className="text-left px-3 py-2 font-bold text-indigo-700">
-                      {c.title.split(' vs ')[0].trim()}
-                    </th>
-                    <th className="text-left px-3 py-2 font-bold text-slate-500">
-                      {c.title.split(' vs ')[1]?.trim() || 'Alternative'}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {c.rows.map(([label, a, b], i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                      <td className="px-3 py-2.5 font-bold text-slate-500 align-top border-b border-slate-100">{label}</td>
-                      <td className="px-3 py-2.5 text-slate-700 leading-relaxed align-top border-b border-slate-100">{a}</td>
-                      <td className="px-3 py-2.5 text-slate-700 leading-relaxed align-top border-b border-slate-100">{b}</td>
-                    </tr>
+
+            {/* Main comparison card */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+              {/* Column header labels */}
+              <div className="grid grid-cols-2 border-b border-slate-100">
+                <div className="px-4 py-2.5 border-r border-slate-100" style={{ borderTopColor: colorA, borderTopWidth: 3 }}>
+                  <p className="text-xs font-black truncate" style={{ color: colorA }}>{courseA.name}</p>
+                </div>
+                <div className="px-4 py-2.5" style={{ borderTopColor: colorB, borderTopWidth: 3 }}>
+                  <p className="text-xs font-black truncate" style={{ color: colorB }}>{courseB.name}</p>
+                </div>
+              </div>
+
+              <CompareRow
+                label="Duration" icon="⏱" aColor={colorA}
+                aContent={<p className="text-sm font-bold text-slate-800">{courseA.duration ?? '—'}</p>}
+                bContent={<p className="text-sm font-bold text-slate-800">{courseB.duration ?? '—'}</p>}
+              />
+
+              <CompareRow
+                label="How to get in" icon="📝" aColor={colorA}
+                aContent={
+                  examA
+                    ? <div>
+                        <p className="text-xs font-bold text-slate-800">{examA.name}</p>
+                        {examA.is_mandatory && <span className="text-[10px] font-bold text-rose-600">Mandatory</span>}
+                      </div>
+                    : <p className="text-xs text-slate-500">Merit / direct admission</p>
+                }
+                bContent={
+                  examB
+                    ? <div>
+                        <p className="text-xs font-bold text-slate-800">{examB.name}</p>
+                        {examB.is_mandatory && <span className="text-[10px] font-bold text-rose-600">Mandatory</span>}
+                      </div>
+                    : <p className="text-xs text-slate-500">Merit / direct admission</p>
+                }
+              />
+
+              <CompareRow
+                label="Market demand" icon="📈" aColor={colorA}
+                aContent={
+                  dirA
+                    ? <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ color: dirA.color, background: dirA.bg }}>
+                        {dirA.label}
+                      </span>
+                    : <p className="text-xs text-slate-400">—</p>
+                }
+                bContent={
+                  dirB
+                    ? <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ color: dirB.color, background: dirB.bg }}>
+                        {dirB.label}
+                      </span>
+                    : <p className="text-xs text-slate-400">—</p>
+                }
+              />
+
+              <CompareRow
+                label="Skills you build" icon="🔁" aColor={colorA}
+                aContent={<SkillChips skills={suppA?.skills} />}
+                bContent={<SkillChips skills={suppB?.skills} />}
+              />
+
+              {(salA.length > 0 || salB.length > 0) && (
+                <CompareRow
+                  label="Starting salary" icon="💰" aColor={colorA}
+                  aContent={
+                    salA[0]
+                      ? <p className="text-xs font-bold text-emerald-700">{salA[0].range_text}</p>
+                      : <p className="text-xs text-slate-400">Varies</p>
+                  }
+                  bContent={
+                    salB[0]
+                      ? <p className="text-xs font-bold text-emerald-700">{salB[0].range_text}</p>
+                      : <p className="text-xs text-slate-400">Varies</p>
+                  }
+                />
+              )}
+
+              <CompareRow
+                label="Top career roles" icon="💼" aColor={colorA}
+                aContent={
+                  <div className="flex flex-col gap-0.5">
+                    {careersA.slice(0, 3).map((c, i) => (
+                      <p key={i} className="text-[11px] text-slate-700 leading-snug">• {c}</p>
+                    ))}
+                  </div>
+                }
+                bContent={
+                  <div className="flex flex-col gap-0.5">
+                    {careersB.slice(0, 3).map((c, i) => (
+                      <p key={i} className="text-[11px] text-slate-700 leading-snug">• {c}</p>
+                    ))}
+                  </div>
+                }
+              />
+
+              {(courseA.pg_options?.length > 0 || courseB.pg_options?.length > 0) && (
+                <CompareRow
+                  label="After graduation" icon="🎓" aColor={colorA}
+                  aContent={
+                    <div className="flex flex-col gap-0.5">
+                      {(courseA.pg_options ?? []).slice(0, 3).map((p, i) => (
+                        <p key={i} className="text-[11px] text-slate-600 leading-snug">• {p}</p>
+                      ))}
+                    </div>
+                  }
+                  bContent={
+                    <div className="flex flex-col gap-0.5">
+                      {(courseB.pg_options ?? []).slice(0, 3).map((p, i) => (
+                        <p key={i} className="text-[11px] text-slate-600 leading-snug">• {p}</p>
+                      ))}
+                    </div>
+                  }
+                />
+              )}
+            </div>
+
+            {/* Right for you if */}
+            {(courseA.fit_for || courseB.fit_for) && (
+              <section>
+                <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3">Right For You If...</p>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { course: courseA, color: colorA },
+                    { course: courseB, color: colorB },
+                  ].map(({ course, color }, i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl p-3 border"
+                      style={{ background: `${color}12`, borderColor: `${color}40` }}
+                    >
+                      <p className="text-[11px] font-black mb-1.5 leading-tight" style={{ color }}>{course.name}</p>
+                      <p className="text-xs text-slate-700 leading-relaxed">{course.fit_for ?? '—'}</p>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              </section>
+            )}
+
+            {/* Honest note */}
+            <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex gap-2.5">
+              <span className="text-base flex-shrink-0">⚠️</span>
+              <p className="text-xs text-amber-800 leading-relaxed">
+                No comparison can decide for you. The right course depends on your interests, budget, exam readiness, and what you want your daily life to look like. Use this as a starting point — not a final answer.
+              </p>
+            </div>
+
+            {/* Deep dive links */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { course: courseA, color: colorA, slug: slugA },
+                { course: courseB, color: colorB, slug: slugB },
+              ].map(({ course, color, slug }, i) => (
+                <Link
+                  key={i}
+                  href={`/path/${slug}`}
+                  className="flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-black text-white shadow-sm text-center leading-tight"
+                  style={{ background: `linear-gradient(135deg, ${color}, ${color}bb)` }}
+                >
+                  {course.icon} Full {course.name} details →
+                </Link>
+              ))}
             </div>
           </div>
-        ))}
 
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-700 leading-relaxed">
-          <strong>Remember:</strong> These comparisons are general. Always check specific college placement records, costs and cut-offs before choosing.
-        </div>
+        ) : (
+          /* ── Preset pairs landing ── */
+          <section>
+            <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3">Common Comparisons</p>
+            <div className="space-y-2">
+              {PRESET_PAIRS.map((pair) => (
+                <Link
+                  key={`${pair.a}-${pair.b}`}
+                  href={`/compare?a=${pair.a}&b=${pair.b}`}
+                  className="flex items-center gap-3 bg-white rounded-xl px-4 py-3.5 border border-slate-100 shadow-sm hover:border-brand-200 transition-all"
+                >
+                  <span className="text-xl">{pair.icon}</span>
+                  <p className="text-sm font-bold text-slate-800 flex-1">{pair.label}</p>
+                  <span className="text-slate-300 text-sm">›</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
       </main>
 
-      <BottomNav active="home" />
+      <BottomNav />
     </div>
   );
 }

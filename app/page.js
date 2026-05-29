@@ -91,6 +91,26 @@ export default async function HomePage() {
           </div>
         </div>
 
+        {/* ── Mission Statement ── */}
+        <div className="rounded-2xl bg-white border border-slate-100 shadow-sm px-5 py-4">
+          <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2">Why Pathsy exists</p>
+          <p className="text-sm font-bold text-slate-800 leading-snug">
+            Every student deserves honest guidance — not just the degrees everyone already knows.
+          </p>
+          <div className="mt-3 space-y-2">
+            {[
+              ['🎯', 'Skills outlast degree titles. We show you what you\'ll actually learn and do.'],
+              ['⚖️', 'No path is "lesser." A B.Sc or a Diploma can take you exactly as far as a B.Tech — if it fits you.'],
+              ['🔍', 'Real salaries, real exams, real careers — not the best-case story.'],
+            ].map(([icon, text]) => (
+              <div key={icon} className="flex items-start gap-2.5">
+                <span className="text-base flex-shrink-0 mt-0.5">{icon}</span>
+                <p className="text-[12px] text-slate-600 leading-snug">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* ── Choose Your Stage ── */}
         <section>
           <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3">
