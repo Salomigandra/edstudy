@@ -26,6 +26,17 @@ const TABS = [
     ),
   },
   {
+    href: '/compare',
+    label: 'Compare',
+    match: (p) => p.startsWith('/compare'),
+    icon: (active) => (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="9" height="18" rx="2" fill={active ? 'currentColor' : 'none'}/>
+        <rect x="13" y="3" width="9" height="18" rx="2" fill={active ? 'currentColor' : 'none'}/>
+      </svg>
+    ),
+  },
+  {
     href: '/saved',
     label: 'Saved',
     match: (p) => p.startsWith('/saved'),
@@ -53,7 +64,7 @@ export default function BottomNav() {
 
   return (
     <nav
-      className="lg:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg bg-white/96 backdrop-blur-md border-t border-brand-100 flex z-50"
+      className="lg:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg bg-white border-t border-brand-100 flex z-50"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       {TABS.map((tab) => {
