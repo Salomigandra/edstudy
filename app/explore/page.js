@@ -85,10 +85,12 @@ export default async function ExplorePage({ searchParams }) {
 
           {/* Streams grid */}
           {(streams ?? []).length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-4xl mb-3">🚧</p>
-              <p className="font-black text-slate-700">Coming Soon</p>
-              <p className="text-sm text-slate-400 mt-1">We're adding content for this stage.</p>
+            <div className="text-center py-20 px-6">
+              <p className="text-5xl mb-4">🛤️</p>
+              <p className="font-black text-xl text-slate-700 mb-2">Coming Soon</p>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                We're building out this section.<br/>Check back soon — it's going to be worth the wait.
+              </p>
             </div>
           ) : (
             <div className="grid grid-cols-2 gap-3">
@@ -155,16 +157,20 @@ export default async function ExplorePage({ searchParams }) {
               <Link
                 key={stage.id}
                 href={`/explore?stage=${stage.slug}`}
-                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${meta.gradient} p-5 text-white flex items-center gap-4 active:scale-[0.98] transition-transform shadow-md`}
+                className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${meta.gradient} p-5 text-white flex items-center gap-4 active:scale-[0.98] transition-transform shadow-md ${count === 0 ? 'opacity-70' : ''}`}
               >
                 <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-white/10" />
                 <span className="text-5xl flex-shrink-0">{meta.emoji}</span>
                 <div className="flex-1 relative">
                   <p className="font-black text-lg leading-tight">{stage.label}</p>
                   <p className="text-sm text-white/80 mt-1">{meta.hint}</p>
-                  {count > 0 && (
+                  {count > 0 ? (
                     <span className="inline-block mt-2 text-[11px] font-bold bg-black/20 rounded-full px-3 py-0.5">
                       {count} streams
+                    </span>
+                  ) : (
+                    <span className="inline-block mt-2 text-[11px] font-bold bg-white/20 rounded-full px-3 py-0.5">
+                      Coming Soon
                     </span>
                   )}
                 </div>
