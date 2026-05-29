@@ -1,6 +1,4 @@
-import { createCachedClient } from '@/lib/supabaseServer';
-
-export const revalidate = 3600;
+import { createPublicClient } from '@/lib/supabaseServer';
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import QuizClient from './QuizClient';
@@ -8,7 +6,7 @@ import QuizClient from './QuizClient';
 export const metadata = { title: 'Career Quiz' };
 
 export default async function QuizPage() {
-  const supabase = createCachedClient();
+  const supabase = createPublicClient();
 
   const [{ data: questions }, { data: streams }] = await Promise.all([
     supabase
@@ -28,7 +26,7 @@ export default async function QuizPage() {
 
   return (
     <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none bg-slate-50">
-      <Header backHref="/" title="Career Quiz" subtitle="8 questions · personalised results" />
+      <Header backHref="/" title="Career Quiz" subtitle="8 questions · suggested paths to explore" />
       <main className="flex-1 px-4 lg:px-8 pt-5 pb-28 lg:pb-10 lg:max-w-3xl lg:mx-auto lg:w-full">
         {sortedQuestions.length === 0 ? (
           <div className="text-center py-16">

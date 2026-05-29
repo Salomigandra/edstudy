@@ -156,10 +156,10 @@ export default function GuideClient() {
     const answered = Object.keys(answers).length;
     return (
       <div className="space-y-4">
-        <FlowBar steps={['Answer 5 questions', 'See 3 paths', 'Explore']} active={0} />
+        <FlowBar steps={['Answer 8 questions', 'See 3 paths', 'Explore']} active={0} />
 
         <div className="bg-slate-800 rounded-2xl p-4 text-white text-sm">
-          <p className="font-black text-base mb-1">5 quick questions</p>
+          <p className="font-black text-base mb-1">8 quick questions</p>
           <p className="text-slate-300 text-xs">No login. No final decision. Just starting points to explore.</p>
         </div>
 
@@ -191,7 +191,7 @@ export default function GuideClient() {
           disabled={answered < 3}
           className="w-full bg-slate-800 disabled:opacity-50 text-white font-black text-sm py-3.5 rounded-2xl"
         >
-          {answered < 3 ? `Answer at least 3 questions (${answered}/5)` : 'Show my starting paths →'}
+          {answered < 3 ? `Answer at least 3 questions (${answered}/8)` : 'Show my starting paths →'}
         </button>
 
         <button
@@ -212,7 +212,7 @@ export default function GuideClient() {
       <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4">
         <p className="font-black text-slate-800 text-base mb-1">Not sure where to start?</p>
         <p className="text-sm text-slate-500 leading-relaxed">
-          Pick what you enjoy most below — or take the 5-question quiz. This won&apos;t decide for you, it just narrows the options.
+          Pick what you enjoy most below — or take the 8-question quiz. This won&apos;t decide for you, it just narrows the options.
         </p>
       </div>
 
@@ -222,7 +222,7 @@ export default function GuideClient() {
       >
         <span className="text-3xl">✨</span>
         <div className="flex-1">
-          <p className="font-black text-sm">Take the 5-question quiz</p>
+          <p className="font-black text-sm">Take the 8-question quiz</p>
           <p className="text-xs text-white/70 mt-0.5">Answer questions about your interests and goals</p>
         </div>
         <span className="text-white/50 text-xl">›</span>

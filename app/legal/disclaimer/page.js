@@ -63,7 +63,7 @@ export default function DisclaimerPage() {
         </Section>
 
         <Section title="6. Quiz and Recommendations">
-          The 5-question quiz on Pathsy provides weighted stream suggestions based on your
+          The 8-question quiz on Pathsy provides weighted stream suggestions based on your
           responses. These are exploratory suggestions only — not a professional assessment of your
           aptitude, interests, or suitability for any career. We strongly encourage students to also
           seek guidance from school counsellors, teachers, and parents.

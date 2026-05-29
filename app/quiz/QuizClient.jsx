@@ -143,7 +143,7 @@ function matchLabel(pct) {
 }
 
 // per-question big emoji context (index-based, cosmetic only)
-const Q_ICONS = ['🤔', '💭', '🌟', '🎯', '⚡'];
+const Q_ICONS = ['🤔', '💭', '🌟', '🎯', '⚡', '🔍', '🧩', '🚀'];
 
 // per-option color tints (index 0-3)
 const OPT_COLORS = [
@@ -174,7 +174,7 @@ function IntroScreen({ total, onStart }) {
         {[
           ['🧠', 'Personality-based', 'What genuinely interests you, not your marks'],
           ['⚡', 'Fast', 'Done in under 2 minutes'],
-          ['🎯', 'Personalised', 'Covers all 16 streams — science, law, pharmacy & more'],
+          ['🎯', 'Suggested paths', 'Covers all 16 streams — science, law, pharmacy & more'],
         ].map(([icon, title, desc]) => (
           <div key={title} className="flex items-start gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100 shadow-sm">
             <span className="text-xl flex-shrink-0">{icon}</span>
