@@ -1,4 +1,6 @@
-export default function Logo({ size = 36, showText = true }) {
+export default function Logo({ size = 36, showText = true, variant = 'light' }) {
+  const pathColor = variant === 'dark' ? 'text-white' : 'text-slate-900';
+  const syColor   = variant === 'dark' ? 'text-[#fb923c]' : 'text-[#1e3a8a]';
   return (
     <div className="flex items-center gap-2.5">
       {/*
@@ -137,10 +139,9 @@ export default function Logo({ size = 36, showText = true }) {
         />
       </svg>
 
-      {/* Wordmark — "Path" near-black, "sy" deep navy to match the mark */}
       {showText && (
-        <span className="text-[18px] font-black tracking-tight leading-none text-slate-900">
-          Path<span className="text-[#1e3a8a]">sy</span>
+        <span className={`text-[18px] font-black tracking-tight leading-none ${pathColor}`}>
+          Path<span className={syColor}>sy</span>
         </span>
       )}
     </div>
