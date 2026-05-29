@@ -163,18 +163,18 @@ function IntroScreen({ total, onStart }) {
       <div>
         <p className="text-7xl mb-4">🗺️</p>
         <h1 className="font-black text-2xl text-slate-900 leading-tight">
-          Find your path<br />in 60 seconds
+          Find your path<br />in 2 minutes
         </h1>
         <p className="text-sm text-slate-500 mt-3 leading-relaxed max-w-xs mx-auto">
-          Answer {total} honest questions about who you are — not what you scored. No right answers, just yours.
+          Answer {total} questions about who you are — not what you scored. No right answers, just yours.
         </p>
       </div>
 
       <div className="w-full max-w-xs space-y-3 text-left">
         {[
           ['🧠', 'Personality-based', 'What genuinely interests you, not your marks'],
-          ['⚡', 'Fast', `Done in under ${total} minutes`],
-          ['🎯', 'Personalised', 'Top 3 stream matches just for you'],
+          ['⚡', 'Fast', 'Done in under 2 minutes'],
+          ['🎯', 'Personalised', 'Covers all 16 streams — science, law, pharmacy & more'],
         ].map(([icon, title, desc]) => (
           <div key={title} className="flex items-start gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100 shadow-sm">
             <span className="text-xl flex-shrink-0">{icon}</span>
@@ -194,7 +194,7 @@ function IntroScreen({ total, onStart }) {
         Let's start →
       </button>
 
-      <p className="text-[11px] text-slate-400">Takes about 1 minute · No sign-up needed</p>
+      <p className="text-[11px] text-slate-400">Takes about 2 minutes · No sign-up needed</p>
     </div>
   );
 }

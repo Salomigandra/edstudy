@@ -28,7 +28,7 @@ export default async function QuizPage() {
 
   return (
     <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none bg-slate-50">
-      <Header backHref="/" title="Career Quiz" subtitle="5 questions · personalised results" />
+      <Header backHref="/" title="Career Quiz" subtitle="8 questions · personalised results" />
       <main className="flex-1 px-4 lg:px-8 pt-5 pb-28 lg:pb-10 lg:max-w-3xl lg:mx-auto lg:w-full">
         {sortedQuestions.length === 0 ? (
           <div className="text-center py-16">
