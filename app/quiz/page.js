@@ -1,4 +1,6 @@
-import { createPublicClient } from '@/lib/supabaseServer';
+import { createCachedClient } from '@/lib/supabaseServer';
+
+export const revalidate = 3600;
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import QuizClient from './QuizClient';
@@ -6,7 +8,7 @@ import QuizClient from './QuizClient';
 export const metadata = { title: 'Career Quiz' };
 
 export default async function QuizPage() {
-  const supabase = createPublicClient();
+  const supabase = createCachedClient();
 
   const [{ data: questions }, { data: streams }] = await Promise.all([
     supabase

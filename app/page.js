@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { createPublicClient } from '@/lib/supabaseServer';
+import { createCachedClient } from '@/lib/supabaseServer';
+
+export const revalidate = 3600;
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 
@@ -41,7 +43,7 @@ const POPULAR_SEARCHES = [
 ];
 
 export default async function HomePage() {
-  const supabase = createPublicClient();
+  const supabase = createCachedClient();
 
   const [{ data: stages }, { data: streams }, { data: courseCount }] = await Promise.all([
     supabase.from('education_stages').select('id, slug, label, sort_order').order('sort_order'),

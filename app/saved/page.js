@@ -23,7 +23,7 @@ export default async function SavedPage() {
 
   return (
     <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none bg-slate-50">
-      <Header title="Saved Paths" subtitle="Your shortlisted options" />
+      <Header backHref="/" title="Saved Paths" subtitle="Your shortlisted options" />
 
       <main className="flex-1 px-4 pt-5 pb-28 lg:pb-10 space-y-4">
         <SavedPathsClient initialPaths={paths ?? []} userId={user.id} />

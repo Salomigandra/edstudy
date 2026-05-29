@@ -1,11 +1,13 @@
 import { notFound } from 'next/navigation';
-import { createPublicClient } from '@/lib/supabaseServer';
+import { createCachedClient } from '@/lib/supabaseServer';
+
+export const revalidate = 3600;
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import StreamClient from '@/components/StreamClient';
 
 export async function generateMetadata({ params }) {
-  const supabase = createPublicClient();
+  const supabase = createCachedClient();
   const { data: stream } = await supabase
     .from('streams')
     .select('name, description')
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function StreamPage({ params }) {
-  const supabase = createPublicClient();
+  const supabase = createCachedClient();
 
   const [{ data: stream }, { data: courses }] = await Promise.all([
     supabase

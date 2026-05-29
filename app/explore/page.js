@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { createPublicClient } from '@/lib/supabaseServer';
+import { createCachedClient } from '@/lib/supabaseServer';
+
+export const revalidate = 3600;
 import Header from '@/components/Header';
 import BottomNav from '@/components/BottomNav';
 import After10thCompare from '@/components/After10thCompare';
@@ -42,7 +44,7 @@ export async function generateMetadata({ searchParams }) {
 
 export default async function ExplorePage({ searchParams }) {
   const stageSlug = searchParams?.stage;
-  const supabase = createPublicClient();
+  const supabase = createCachedClient();
 
   if (stageSlug) {
     const [{ data: stage }, { data: allStages }] = await Promise.all([

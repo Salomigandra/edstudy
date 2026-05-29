@@ -19,7 +19,7 @@ export default async function ProfilePage() {
 
   return (
     <div className="w-full max-w-lg mx-auto lg:max-w-none min-h-screen flex flex-col shadow-xl lg:shadow-none bg-slate-50">
-      <Header title="Profile" subtitle="Your account" />
+      <Header backHref="/" title="Profile" subtitle="Your account" />
 
       <main className="flex-1 px-4 lg:px-8 pt-5 pb-28 lg:pb-10 lg:max-w-3xl lg:mx-auto lg:w-full">
         <ProfileClient

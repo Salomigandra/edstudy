@@ -117,7 +117,7 @@ function LoginForm() {
               { icon: '🎓', text: 'Explore 100+ courses and streams' },
               { icon: '🧭', text: 'Take the quiz to find your best fit' },
               { icon: '🔖', text: 'Save favourites and share with parents' },
-              { icon: '⚖️', text: 'Compare paths side by side', comingSoon: true },
+              { icon: '⚖️', text: 'Compare paths side by side' },
             ].map(({ icon, text, comingSoon }) => (
               <div key={text} className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg flex-shrink-0">
@@ -144,7 +144,7 @@ function LoginForm() {
           {/* Mobile: back + logo */}
           <div className="lg:hidden mb-8 flex flex-col gap-5">
             <Link
-              href={next === '/' ? '/' : next}
+              href="/"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-brand-600 transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -157,7 +157,7 @@ function LoginForm() {
 
           {/* Desktop: back link */}
           <Link
-            href={next === '/' ? '/' : next}
+            href="/"
             className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-brand-600 transition-colors mb-10"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
